@@ -1,0 +1,26 @@
+.ct_footer {
+	font-size:12px;
+    position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 70px;
+	background-color: #FFF2B5;
+
+	div {
+		text-align:center;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+
+	a {
+		color: #333 !important;
+		text-decoration: none;
+		cursor: pointer!important;
+	}
+
+	.span_bold{
+		font-weight: bold;
+	}
+}
