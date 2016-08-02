@@ -39,6 +39,7 @@
   "devDependencies": {
     "expect.js": "~0.3.1",
     "node-sass": "^3.4.2",
+    "precommit-hook": "1.x",
     "rc-dialog": "~5.2.1",
     "rc-server": "3.x",
     "rc-tools": "4.x",
