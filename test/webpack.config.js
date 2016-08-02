@@ -3,7 +3,8 @@ var webpack = require('webpack')
 module.exports = {
   devtool: 'source-map', //http://stackoverflow.com/questions/30870830/how-do-i-generate-sourcemaps-when-using-babel-and-webpack
   entry: {
-    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/Test'),
+    'TestComponent-bk'     : path.join(process.cwd(), 'main/scripts/modules/TestInputText'),
+    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestDatePicker'),
 
   },
   output: {
