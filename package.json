@@ -34,7 +34,8 @@
     "saucelabs": "rc-tools run saucelabs",
     "browser-test": "rc-tools run browser-test",
     "browser-test-cover": "rc-tools run browser-test-cover",
-    "watch": "rc-tools run watch"
+    "watch": "rc-tools run watch",
+    "export-src": "rm -rf ./src \n cp -r ./test/src/ ./"
   },
   "devDependencies": {
     "expect.js": "~0.3.1",
