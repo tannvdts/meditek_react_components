@@ -21,6 +21,14 @@ var mixins = {
       React.PropTypes.string,
       React.PropTypes.number,
     ]),
+  },
+
+  customPropTypes: {
+    check: PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+      React.PropTypes.bool
+    ])
   }
 }
 export default mixins

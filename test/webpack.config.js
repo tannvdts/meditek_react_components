@@ -6,7 +6,8 @@ module.exports = {
     'TestComponent-bk'     : path.join(process.cwd(), 'main/scripts/modules/TestInputText'),
     'TestComponent-bk2'     : path.join(process.cwd(), 'main/scripts/modules/TestDatePicker'),
     'TestComponent-bk3'     : path.join(process.cwd(), 'main/scripts/modules/Test'),
-    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestCheckbox'),
+    'TestComponent-bk5'     : path.join(process.cwd(), 'main/scripts/modules/TestCheckbox'),
+    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestRadio'),
 
   },
   output: {
