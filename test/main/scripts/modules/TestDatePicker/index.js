@@ -27,12 +27,15 @@ class Test extends Component{
       format:'dd/mm/yyyy',
       startDate: '-3d', //curent date
       autoclose: !0,
+      clearBtn: true
     }
   }
 
   componentDidMount() {
     var self = this;
     var selectedDate = new Date();
+    // Mo phong bat dong bo
+    //----------------------------------
     setTimeout(function(selectedDate){
       self.setState({
         testDatePickerValue:selectedDate

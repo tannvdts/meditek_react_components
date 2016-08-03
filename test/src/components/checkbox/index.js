@@ -1,34 +1,43 @@
 import React, {Component, PropTypes} from 'react'
+import mixins from '../mixins'
+
 class Checkbox extends Component {
-    getDefaultProps(){
-        return {
-            className: "checkbox-inline",
-        };
+    constructor (props) {
+      super(props);
+      this.state = {};
     }
+
     _onChange(e){
-        if(typeof this.props.onChange !== 'undefined')
-            this.props.onChange(e.target.checked);
+        if(this.props.onChangeValue)
+            this.props.onChangeValue(e.target.checked);
     }
-    _setValue(checked){
-        $(this.refs.input).prop('checked', checked);
-    }
-    _getValue(){
-        return $(this.refs.input).checked;
-    }
+
     render() {
-        return ( 
-            <label className={this.props.className}>
-                <input type="checkbox" 
-                    ref="input" className="regular-checkbox"
-                    onChange={this._onChange} />
-                        <span>{this.props.label}</span>
-            </label>
-        );
+        const {style, isChecked, onChangeValue, ...other} = this.props;
+        var styleMix = _.assignIn({}, style);
+        if (this.props.hide == true) {
+          styleMix.display = 'none'
+        }
+        return <input  type="checkbox"
+                ref="input"
+                {...other}
+                style={styleMix}
+                checked={isChecked}
+                onChange={this._onChange.bind(this)}/>
+
     }
 }
-Checkbox.propTypes = {
-    label: PropTypes.string,
-    className: PropTypes.string,
-    onChange: PropTypes.func
-};
+
+Checkbox.propTypes = _.assignIn({}, mixins.inputPropTypes, {
+  isChecked: PropTypes.bool
+})
+Checkbox.defaultProps = {
+  hide: false,
+  disabled: false,
+  readOnly: false,
+  isChecked: false,
+  style: {}
+}
+
+
 export default Checkbox

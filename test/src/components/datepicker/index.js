@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import mixins from '../mixins'
-class Datepicker extends Component {
+class DatePicker extends Component {
   constructor(props) {
     super(props);
     this.state={};
@@ -11,7 +11,7 @@ class Datepicker extends Component {
 		$(this.refs.datepicker)
       .datepicker(this.props.datepickerOptions)
       .on("changeDate", function(e){
-        console.log("changeDate:", e);
+        console.log("DatePicker Component: changeDate:", e);
         if(self.props.onChangeValue) {
           self.props.onChangeValue(e.date);
         }
@@ -20,25 +20,35 @@ class Datepicker extends Component {
 
 
 	render(){
-    var {style, onChangeValue, value, ...other} = this.props;
-    var displayValue = null;
+    const {style, onChangeValue, value, ...other} = this.props;
+    //Xu ly display
+    let displayValue = null;
     if (value) {
-      displayValue = moment(value).format("DD/MM/YYYY");
+      let fm = 'DD/MM/YYYY';
+      if (this.props.datepickerOptions.format)
+        fm = this.props.datepickerOptions.format.toUpperCase();
+      displayValue = moment(value).format(fm);
+    }
+    //Xu ly style
+    let styleMix = _.assignIn({}, style);
+    if (this.props.hide == true) {
+      styleMix.display = 'none'
     }
     return <input type="text"
               {...other}
+              style={styleMix}
               ref="datepicker"
               value = {displayValue}
             />
 	}
 }
 
-Datepicker.propTypes = _.assignIn({}, mixins.inputPropTypes, {
+DatePicker.propTypes = _.assignIn({}, mixins.inputPropTypes, {
   datepickerOptions: PropTypes.object,
   value: PropTypes.object
 });
 
-Datepicker.defaultProps = {
+DatePicker.defaultProps = {
   hide: false,
   disabled: false,
   readOnly: false,
@@ -49,6 +59,7 @@ Datepicker.defaultProps = {
     format:'dd/mm/yyyy',
     startDate: '-3d',
     autoclose: !0,
+    clearBtn: true,
   }
 }
-export default Datepicker
+export default DatePicker
