@@ -3,21 +3,19 @@
  */
 import {render} from 'react-dom'
 import React, {Component, PropTypes} from 'react'
-import RadioGroup from '../../../../src/components/radio2/RadioGroup'
-import Radio from '../../../../src/components/radio2/Radio'
+import {RadioGroup, Radio} from '../../../../src/components/radio'
 class Test extends Component{
   constructor(props) {
     super(props);
     this.state = {
       hide: false,
-      selectedValue: 'apple',
+      testRadioSelectedValue: 'apple',
     }
   }
 
-  _onTestInputChange(value) {
-    console.log(value)
+  _onTestRadioChange(value) {
     this.setState({
-      testInputValue:value
+      testRadioSelectedValue:value
     })
   }
 
@@ -27,10 +25,19 @@ class Test extends Component{
 
   render() {
     return (
-      <RadioGroup name="fruit">
-        <Radio value="apple" />Apple
-        <Radio value="orange" />Orange
-        <Radio value="watermelon" />Watermelon
+      <RadioGroup name={"fruit"}
+                  value={this.state.testRadioSelectedValue}
+                  onChangeValue={this._onTestRadioChange.bind(this)}
+      >
+        <label className="checkbox-inline">
+          <Radio value="apple" />Apple
+        </label>
+        <label className="checkbox-inline">
+          <Radio value="orange" />Orange
+        </label>
+        <label className="checkbox-inline">
+          <Radio value="watermelon" />Watermelon
+        </label>
       </RadioGroup>
 
     )

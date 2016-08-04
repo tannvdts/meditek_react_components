@@ -13,14 +13,15 @@ class RadioGroupCustom extends Component {
   componentDidMount(){
   }
 
-  _onChange(e) {
+  _onChange(value) {
+    console.log("RadioGroup Component: _onChange:", value);
     if(typeof this.props.onChangeValue !== 'undefined') {
-      this.props.onChangeValue(e.target.value);
+      this.props.onChangeValue(value);
     }
   }
 
   render(){
-    var { style, onChangeValue, ...other } = this.props;
+    var { style, value, onChangeValue, ...other } = this.props;
     var styleMix = _.assignIn({}, style);
     if (this.props.hide == true) {
       styleMix.display = 'none'
@@ -28,8 +29,7 @@ class RadioGroupCustom extends Component {
     return  <RadioGroup
               {...other}
               style={styleMix}
-              name={this.props.name}
-              selectedValue={this.props.value}
+              selectedValue={value}
               onChange={this._onChange.bind(this)}
             >
               {this.props.children}

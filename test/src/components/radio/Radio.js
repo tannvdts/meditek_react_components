@@ -1,9 +1,6 @@
 /**
  * Created by tannguyen on 03/08/2016.
  */
-/**
- * Created by tannguyen on 03/08/2016.
- */
 import React, {Component, PropTypes} from 'react'
 import mixins from '../mixins'
 import {Radio} from 'react-radio-group'
