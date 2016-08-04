@@ -1,7 +1,4 @@
 /**
- * Created by tannguyen on 03/08/2016.
- */
-/**
  * Created by tannguyen on 01/08/2016.
  */
 import {render} from 'react-dom'
@@ -16,7 +13,7 @@ class Test extends Component{
 
   render() {
     return (
-      <ComponentTest/>
+      <ComponentTest number="112" desc="toi la toi"/>
     )
   }
 }

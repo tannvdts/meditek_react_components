@@ -16,11 +16,12 @@ class InputText extends Component {
 	}
 
 	render(){
-    var { style, onChangeValue, ...other } = this.props;
-    var styleMix = _.assignIn({}, style);
+    const  {style, onChangeValue, ...other } = this.props;
+    let styleMix = _.assignIn({}, style);
     if (this.props.hide == true) {
       styleMix.display = 'none'
     }
+
     return <input type="text"
               {...other}
                style={styleMix}
