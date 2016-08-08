@@ -8,7 +8,9 @@ module.exports = {
     'TestComponent-bk3'     : path.join(process.cwd(), 'main/scripts/modules/Test'),
     'TestComponent-bk5'     : path.join(process.cwd(), 'main/scripts/modules/TestCheckbox'),
     'TestComponent-bk6'     : path.join(process.cwd(), 'main/scripts/modules/TestRadio'),
-    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestSelect'),
+    'TestComponent-bk7'     : path.join(process.cwd(), 'main/scripts/modules/TestSelect'),
+    'TestComponent-bk8'     : path.join(process.cwd(), 'main/scripts/modules/TestTextarea'),
+    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestModal'),
 
   },
   output: {
