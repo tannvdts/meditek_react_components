@@ -1,3 +1,4 @@
+//https://bootstrap-datepicker.readthedocs.io/en/latest/
 import React, {Component, PropTypes} from 'react'
 import mixins from '../mixins'
 class DatePicker extends Component {

@@ -10,7 +10,8 @@ module.exports = {
     'TestComponent-bk6'     : path.join(process.cwd(), 'main/scripts/modules/TestRadio'),
     'TestComponent-bk7'     : path.join(process.cwd(), 'main/scripts/modules/TestSelect'),
     'TestComponent-bk8'     : path.join(process.cwd(), 'main/scripts/modules/TestTextarea'),
-    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestModal'),
+    'TestComponent-bk9'     : path.join(process.cwd(), 'main/scripts/modules/TestModal'),
+    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestTimePicker'),
 
   },
   output: {
