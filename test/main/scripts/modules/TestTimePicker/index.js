@@ -3,7 +3,8 @@
  */
 import {render} from 'react-dom'
 import React, {Component, PropTypes} from 'react'
-import TimePicker from '../../../../src/components/timepicker2'
+import TimePicker from '../../../../src/components/timepicker'
+import {Modal, ModalHeader, ModalBody, ModalFooter} from "../../../../src/components/modal"
 class Test extends Component{
   constructor(props) {
     super(props);
@@ -20,7 +21,7 @@ class Test extends Component{
       minuteStep: 15,
       secondStep: 15,
       defaultTime: 'current',
-      showMeridian: false, //hien AM/PM hay khong
+      showMeridian: true, //hien AM/PM hay khong
       //--------------------
       showSeconds:true,
       //modalBackdrop:true
@@ -39,9 +40,9 @@ class Test extends Component{
 
   _onTestTimePickerChange(value) {
     console.log("_onTestTimePickerChange", value);
-    /*this.setState({
+    this.setState({
       testTimePicker:value
-    })*/
+    })
   }
 
 
@@ -63,7 +64,6 @@ class Test extends Component{
         />
         <span className="input-group-addon"><i className="glyphicon glyphicon-time"></i></span>
       </div>
-
     )
   }
 }

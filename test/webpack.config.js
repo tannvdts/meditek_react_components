@@ -11,7 +11,8 @@ module.exports = {
     'TestComponent-bk7'     : path.join(process.cwd(), 'main/scripts/modules/TestSelect'),
     'TestComponent-bk8'     : path.join(process.cwd(), 'main/scripts/modules/TestTextarea'),
     'TestComponent-bk9'     : path.join(process.cwd(), 'main/scripts/modules/TestModal'),
-    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestTimePicker'),
+    'TestComponent-bk10'     : path.join(process.cwd(), 'main/scripts/modules/TestTimePicker'),
+    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestFile'),
 
   },
   output: {
