@@ -3176,10 +3176,10 @@ define('moxie/file/File', [
 	return File;
 });
 
-// Included from: src/javascript/file/FileInput.js
+// Included from: src/javascript/file/InputFile.js
 
 /**
- * FileInput.js
+ * InputFile.js
  *
  * Copyright 2013, Moxiecode Systems AB
  * Released under GPL License.
@@ -6389,10 +6389,10 @@ define('moxie/core/utils/Events', [
 	};
 });
 
-// Included from: src/javascript/runtime/html5/file/FileInput.js
+// Included from: src/javascript/runtime/html5/file/InputFile.js
 
 /**
- * FileInput.js
+ * InputFile.js
  *
  * Copyright 2013, Moxiecode Systems AB
  * Released under GPL License.
@@ -9125,10 +9125,10 @@ define("moxie/runtime/flash/file/Blob", [
 	return (extensions.Blob = FlashBlob);
 });
 
-// Included from: src/javascript/runtime/flash/file/FileInput.js
+// Included from: src/javascript/runtime/flash/file/InputFile.js
 
 /**
- * FileInput.js
+ * InputFile.js
  *
  * Copyright 2013, Moxiecode Systems AB
  * Released under GPL License.
@@ -9771,10 +9771,10 @@ define("moxie/runtime/silverlight/file/Blob", [
 	return (extensions.Blob = Basic.extend({}, Blob));
 });
 
-// Included from: src/javascript/runtime/silverlight/file/FileInput.js
+// Included from: src/javascript/runtime/silverlight/file/InputFile.js
 
 /**
- * FileInput.js
+ * InputFile.js
  *
  * Copyright 2013, Moxiecode Systems AB
  * Released under GPL License.
@@ -10136,10 +10136,10 @@ define("moxie/runtime/html4/Runtime", [
 	return extensions;
 });
 
-// Included from: src/javascript/runtime/html4/file/FileInput.js
+// Included from: src/javascript/runtime/html4/file/InputFile.js
 
 /**
- * FileInput.js
+ * InputFile.js
  *
  * Copyright 2013, Moxiecode Systems AB
  * Released under GPL License.
