@@ -12,7 +12,9 @@ module.exports = {
     'TestComponent-bk8'     : path.join(process.cwd(), 'main/scripts/modules/TestTextarea'),
     'TestComponent-bk9'     : path.join(process.cwd(), 'main/scripts/modules/TestModal'),
     'TestComponent-bk10'     : path.join(process.cwd(), 'main/scripts/modules/TestTimePicker'),
-    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestFile'),
+    'TestComponent-bk11'     : path.join(process.cwd(), 'main/scripts/modules/TestFile'),
+    'TestComponent-bk12'     : path.join(process.cwd(), 'main/scripts/modules/TestPagination'),
+    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestPagination'),
 
   },
   output: {
@@ -24,6 +26,7 @@ module.exports = {
   module: {
     loaders: [
       {
+        exclude: /(node_modules|bower_components)/,
         test: /.js$/,
         loader: 'babel'
       },
