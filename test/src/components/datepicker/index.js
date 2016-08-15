@@ -14,7 +14,7 @@ class DatePicker extends Component {
       .on("changeDate", function(e){
         console.log("DatePicker Component: changeDate:", e);
         if(self.props.onChangeValue) {
-          self.props.onChangeValue(e.date);
+          self.props.onChangeValue(e.date, self.props.name);
         }
 		});
 	}

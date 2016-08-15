@@ -3,7 +3,7 @@ var webpack = require('webpack')
 module.exports = {
   devtool: 'source-map', //http://stackoverflow.com/questions/30870830/how-do-i-generate-sourcemaps-when-using-babel-and-webpack
   entry: {
-    'TestComponent-bk'     : path.join(process.cwd(), 'main/scripts/modules/TestInputText'),
+    'TestComponent-bk1'     : path.join(process.cwd(), 'main/scripts/modules/TestInputText'),
     'TestComponent-bk2'     : path.join(process.cwd(), 'main/scripts/modules/TestDatePicker'),
     'TestComponent-bk3'     : path.join(process.cwd(), 'main/scripts/modules/Test'),
     'TestComponent-bk5'     : path.join(process.cwd(), 'main/scripts/modules/TestCheckbox'),
@@ -14,7 +14,7 @@ module.exports = {
     'TestComponent-bk10'     : path.join(process.cwd(), 'main/scripts/modules/TestTimePicker'),
     'TestComponent-bk11'     : path.join(process.cwd(), 'main/scripts/modules/TestFile'),
     'TestComponent-bk12'     : path.join(process.cwd(), 'main/scripts/modules/TestPagination'),
-    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestCheckboxGroup'),
+    'TestComponent-bk13'     : path.join(process.cwd(), 'main/scripts/modules/TestCheckboxGroup'),
 
   },
   output: {

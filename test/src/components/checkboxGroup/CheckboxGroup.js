@@ -18,7 +18,7 @@ class CheckboxGroupCustom extends Component {
   _onChange(values) {
     console.log("RadioGroup Component: _onChange:", values);
     if(typeof this.props.onChangeValue !== 'undefined') {
-      this.props.onChangeValue(values);
+      this.props.onChangeValue(values, this.props.name);
     }
   }
 

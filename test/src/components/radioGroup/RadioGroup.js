@@ -18,7 +18,7 @@ class RadioGroupCustom extends Component {
   _onChange(value) {
     console.log("RadioGroup Component: _onChange:", value);
     if(typeof this.props.onChangeValue !== 'undefined') {
-      this.props.onChangeValue(value);
+      this.props.onChangeValue(value, this.props.name);
     }
   }
 
