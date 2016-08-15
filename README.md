@@ -1,6 +1,10 @@
- **1. Mixins**
+
+
+**1. Mixins**
+-------------
+
 	***Định nghĩa các thuộc tính chung của component***
-		 
+
 	inputPropTypes: {
 	    id: PropTypes.oneOfType([
 	      React.PropTypes.string,
@@ -20,8 +24,8 @@
 	    ]),
 	  },
 
-Ví dụ cách sử dụng:  
-	
+Ví dụ cách sử dụng:
+
 
     Select.propTypes = _.assignIn({}, mixins.inputPropTypes, {
 	  multiple: PropTypes.bool,
@@ -37,11 +41,11 @@ Ví dụ cách sử dụng:
 	    React.PropTypes.array
 	  ]),
 	});
-		
+
 **Select** component bao gồm các thuộc tính của mixins.inputPropTypes và có thêm các thuộc tính khác như multiple, options, defaultValues...
 
-***Định nghĩa thêm các kiểu dữ liệu pha trộn khác:*** 
-		
+***Định nghĩa thêm các kiểu dữ liệu pha trộn khác:***
+
 
     check: PropTypes.oneOfType([
     		      React.PropTypes.string,
@@ -53,8 +57,12 @@ Ví dụ cách sử dụng:
 ----------
 
 
- **2. Danh sách các component và thư viện liên quan:**
- 
+
+
+**2. Danh sách các component và thư viện liên quan:**
+-----------------------------------------------------
+
+
  | STT | Component Name | Thư viện liên quan                                                                                   |
 |-----|----------------|------------------------------------------------------------------------------------------------------|
 | 1   | Checkbox       |                                                                                                      |
@@ -74,8 +82,9 @@ Ví dụ cách sử dụng:
 
 
 **2.1 Checkbox**
+----------------
 
-Props: 
+Props:
 
 **extends mixins.inputPropTypes**
 -**value**: mixins.customPropTypes.check,
@@ -91,7 +100,7 @@ DefaultProps:
 -**trueValue**:  true,
 -**falseValue**: false
 
-Using: 
+Using:
 *Nếu trueValue không xác định thì trueValue mặc định là true,
 *Nếu falseValue không xác định thì falseValue mặc định là false
 
@@ -99,7 +108,7 @@ Using:
 *Khi checkbox unchecked thì gía trị trả về sẽ là falseValue
 
 Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
-   
+
 
     class Test extends Component{
       constructor(props) {
@@ -109,18 +118,18 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
           testCheckboxABCValue: 'YES',
         }
       }
-    
+
       _onTestCheckboxChange(value, name) {
         console.log("Test: _onTestCheckboxChange:", value, 'name: ', name);
         var newState = {};
         if (name==='testCheckboxABCValue') newState.testCheckboxABCValue = value;
         this.setState(newState);
       }
-    
+
       componentDidMount() {
         var self = this;
       }
-    
+
       render() {
         return (
           <Checkbox
@@ -140,15 +149,17 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 
 
 **2.2 CheckboxGroup**
+---------------------
+
 Sử dụng trong trường hợp:
-Gỉa sử có 4 checkbox: 
-Checkbox value="apple" 
-Checkbox value="orange" 
-Checkbox value="watermelon" 
-Checkbox value="banana" 
+Gỉa sử có 4 checkbox:
+Checkbox value="apple"
+Checkbox value="orange"
+Checkbox value="watermelon"
+Checkbox value="banana"
 Khi check apple, orange, banana thì sẽ trả về mảng [apple,  orange, banana]
 
-Props: 
+Props:
 
 **extends mixins.inputPropTypes**
 -**value**: PropTypes.array
@@ -160,7 +171,7 @@ DefaultProps:
 -**readOnly**: false,
 -**style**: {}
 
-Using: 
+Using:
 Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
 Đối với CheckboxGroup Bắt buộc cung cấp thuộc tính name
 
@@ -172,7 +183,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
           testCheckboxGroupSelectedValues: ['apple'],
         }
       }
-    
+
       _onTestCheckboxGroupChange(values, name) {
         var newState = {};
         if(name === 'fruit') {
@@ -180,11 +191,11 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
         }
         this.setState(newState);
       }
-    
+
       componentDidMount() {
         var self = this;
       }
-    
+
       render() {
         return (
           <CheckboxGroup name={"fruit"}
@@ -201,7 +212,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
               <Checkbox value="watermelon" />Watermelon
             </label>
           </CheckboxGroup>
-    
+
         )
       }
     }
@@ -211,9 +222,11 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 
 
 **2.3 DatePicker**
+------------------
+
 Dựa trên thư viện: https://bootstrap-datepicker.readthedocs.io/en/latest/
 
-Props: 
+Props:
 
 -**extends mixins.inputPropTypes**
 -**datePickerOptions**: options của bootstrap-datepicker
@@ -234,7 +247,7 @@ DefaultProps:
 	    clearBtn: true,
   }
 
-Using: 
+Using:
 Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
 
     class Test extends Component{
@@ -245,14 +258,14 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
           testDatePickerValue: null,
         }
       }
-    
+
       _onTestDatePickerChange(value, name) {
         console.log("_onTestDatePickerChange:", value);
         var newState = {};
         if(name ==='myDate') newState.testDatePickerValue = value;
         this.setState(newState);
       }
-    
+
       componentWillMount() {
         this.datePickerOptions= {
           //rtl: App.isRTL(),
@@ -263,7 +276,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
           clearBtn: true
         }
       }
-    
+
       componentDidMount() {
         var self = this;
         var selectedDate = new Date();
@@ -275,7 +288,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
           })
         }, 1000, selectedDate)
       }
-    
+
       render() {
         return (
           <DatePicker datePickerOptions={this.datePickerOptions}
@@ -294,8 +307,11 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 ----------
 
 
-   
+
+
 **2.4 File**
+------------
+
 Xử dụng để chọn upload file và preview file upload
 InputFile component: chọn file để upload
 InputFileImagePreview: preview file upload
@@ -304,7 +320,7 @@ InputFileImagePreview: preview file upload
 Chọn file để upload
 Trả về mảng files
 
-Props: 
+Props:
 
 -**extends mixins.inputPropTypes**
 -**multiple**: PropTypes.bool. Cho phép chọn cùng lúc nhiều file hay không (true/false)
@@ -324,7 +340,7 @@ DefaultProps:
 -**files**: [],
 -**showInfo**: true
 
-**2.4.2 InputFileImagePreview** 
+**2.4.2 InputFileImagePreview**
 Sử dụng để preview file upload
 
 Props:
@@ -339,12 +355,12 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 -**hide**: PropTypes.bool,
 -**file**: PropTypes.object
 
-DefaultProps: 
+DefaultProps:
 
 **hide**: false,
  -**style**: {}
 
-Using: 
+Using:
 Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
 
     class Test extends Component{
@@ -355,7 +371,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
           files: []
         }
       }
-    
+
       _onTestFileInputChange(fileList, name) {
         var newState = {};
         if(name === 'TestFile') {
@@ -363,11 +379,11 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
         }
         this.setState(newState);
       }
-    
+
       componentDidMount() {
         var self = this;
       }
-    
+
       render() {
         return (
           <div>
@@ -385,6 +401,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 
 
 **2.5 InputText**
+-----------------
 
 Props:
 
@@ -408,7 +425,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
           testInputValue: 'tan',
         }
       }
-    
+
       _onTestInputChange(value, name) {
         console.log(value)
         var newState = {};
@@ -417,11 +434,11 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
         }
         this.setState(newState);
       }
-    
+
       componentDidMount() {
         var self = this;
       }
-    
+
       render() {
         return (
           <InputText id = {1234} name={"myInput"} hide={this.state.hide} value={this.state.testInputValue} onChangeValue={this._onTestInputChange.bind(this)} className='form-control'/>
@@ -434,6 +451,8 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 
 
 **2.6 Modal**
+-------------
+
 Dựa trên boostrap 3 Modal
 -Modal Component
 -ModalHeader Component
@@ -457,8 +476,8 @@ Props:
   React.PropTypes.number,
 ]),
 -**size**: PropTypes.string, //null, modal-lg, modal-sm,
--**onShow**: PropTypes.func, 
--**onShown**: PropTypes.func, 
+-**onShow**: PropTypes.func,
+-**onShown**: PropTypes.func,
 -**onHide**: PropTypes.func,
 -**onHidden**: PropTypes.func,
 -**onLoaded**: PropTypes.func
@@ -468,7 +487,7 @@ DefaultProps:
 -**tabIndex**: -1,
 -**size**: null
 
-Functions: 
+Functions:
 
 - **Action (name, options)**
 name:
@@ -491,7 +510,7 @@ Props:
 	  React.PropTypes.number,
 ])
 
-DefaultProps: 
+DefaultProps:
 
 -**style**: {},
 -**hide**: false
@@ -508,7 +527,7 @@ DefaultProps:
 -**style**: {},
 -**hide**: false
 
-2.6.4 ModalFooter: 
+2.6.4 ModalFooter:
 Chứ phần footer của modal
 
 Props:
@@ -536,32 +555,32 @@ Using:
         this.state = {
         }
       }
-    
+
       componentDidMount() {
         var self = this;
       }
       _showModal() {
         this.refs['myModal'].action('show');
       }
-    
+
       _onShown(e) {
         console.log("Test: onshown", e);
-        
+
       }
       render() {
         return (
           <div>
-            <Modal 
-				id="ahihi" 
-				size="modal-lg" 
+            <Modal
+				id="ahihi"
+				size="modal-lg"
 				onShown={this._onShown.bind(this)}>
               <ModalHeader title="Test Modal ne"></ModalHeader>
               <ModalBody>
                 <p>tan test ne</p>
-    
+
               </ModalBody>
               <ModalFooter closeBtnLabel="Tat di ne">
-    
+
               </ModalFooter>
             </Modal>
             <button onClick={this._showModal.bind(this)}>show modal</button>
@@ -575,7 +594,9 @@ Using:
 
 
 **2.7 Pagination**
-Dựa vào bootstrap 3 Pagination, 
+------------------
+
+Dựa vào bootstrap 3 Pagination,
 
 Props:
 -**Kế thừa các thuộc tính của : https://www.npmjs.com/package/react-js-pagination#params**
@@ -585,12 +606,12 @@ Props:
   ]),
 -**style**: PropTypes.object,
 -**className**: PropTypes.string,
--**onChangeValue**: PropTypes.func, //Sự kiện khi click vào 1 trang 
+-**onChangeValue**: PropTypes.func, //Sự kiện khi click vào 1 trang
 -**name**: PropTypes.string,
 -**disabled**: PropTypes.bool,
 -**hide**: PropTypes.bool,
 -**ariaLabel**: PropTypes.string
-  
+
 Default Props:
 
 -**hide**: false,
@@ -609,18 +630,18 @@ Using:
           totalItemsCount: 450
         }
       }
-    
+
       _onTestPaginationChange(value) {
         console.log("TestPagination:_onTestPaginationChange:", value)
         this.setState({
           activePage:value
         })
       }
-    
+
       componentDidMount() {
         var self = this;
       }
-    
+
       render() {
         return (
           <Pagination
@@ -638,13 +659,15 @@ Using:
 
 
 **2.8 RadioGroup**
-Dựa trên thư viện 
+------------------
+
+Dựa trên thư viện
 https://www.npmjs.com/package/react-radio-group
 https://github.com/chenglou/react-radio-group
 - RadioGroup Component
 - Radio Component
 
-**2.8.1 RadioGroup Component** 
+**2.8.1 RadioGroup Component**
 
 Props:
 
@@ -681,7 +704,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
           testRadioSelectedValue: 'apple',
         }
       }
-    
+
       _onTestRadioChange(value, name) {
         var newState = {};
         if(name === 'fruit') {
@@ -689,11 +712,11 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
         }
         this.setState(newState);
       }
-    
+
       componentDidMount() {
         var self = this;
       }
-    
+
       render() {
         return (
           <RadioGroup name={"fruit"}
@@ -710,7 +733,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
               <Radio value="watermelon" />Watermelon
             </label>
           </RadioGroup>
-    
+
         )
       }
     }
@@ -720,6 +743,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 
 
 **2.9 Select**
+--------------
 
 **Nếu multiple = true thì select sẽ trả về array**
 **Nếu multiple = false thì select chỉ trả về 1 gía trị duy nhất(string/number)**
@@ -727,7 +751,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 Props:
 
 -**multiple**: PropTypes.bool, //Có cho select nhiều item hay không
--**options**: PropTypes.array, 
+-**options**: PropTypes.array,
 -**defaultValue**: PropTypes.oneOfType([
   React.PropTypes.string,
   React.PropTypes.number,
@@ -759,7 +783,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
           testSelect: 1,
         }
       }
-    
+
       _onTestSelectChange(value, name) {
         console.log("TestSelect: change:", value);
         var newState = {};
@@ -768,11 +792,11 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
         }
         this.setState(newState);
       }
-    
+
       componentDidMount() {
         var self = this;
       }
-    
+
       render() {
         var options = [
           {name: 'item 1', value: 1},
@@ -798,6 +822,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 
 
 **2.10 Textarea**
+-----------------
 
 Props:
 
@@ -811,7 +836,7 @@ Default Props:
 -**readOnly**: false,
 -**style**: {}
 
-Using: 
+Using:
 
 Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
 
@@ -823,7 +848,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
           testTextarea: 'tan \n 123 \n 545',
         }
       }
-    
+
       _onTestTextareaChange(value, name) {
         console.log("TestTextarea:_onTestTextareaChange", value)
         var newState = {};
@@ -832,11 +857,11 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
         }
         this.setState(newState);
       }
-    
+
       componentDidMount() {
         var self = this;
       }
-    
+
       render() {
         return (
           <Textarea id = {1234}
@@ -850,6 +875,8 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
     }
 
 **2.11 TimePicker**
+-------------------
+
 Dựa vào thư viện: 
 https://jdewit.github.io/bootstrap-timepicker/
 https://www.npmjs.com/package/bootstrap-timepicker
