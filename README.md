@@ -63,6 +63,8 @@ Ví dụ cách sử dụng:
 -----------------------------------------------------
 
 
+
+
  | STT | Component Name | Thư viện liên quan                                                                                   |
 |-----|----------------|------------------------------------------------------------------------------------------------------|
 | 1   | Checkbox       |                                                                                                      |
@@ -78,6 +80,9 @@ Ví dụ cách sử dụng:
 | 11  | TimePicker     | https://jdewit.github.io/bootstrap-timepicker/ https://www.npmjs.com/package/bootstrap-timepicker    |
 
 
+
+
+
 ----------
 
 
@@ -86,28 +91,42 @@ Ví dụ cách sử dụng:
 
 Props:
 
-**extends mixins.inputPropTypes**
--**value**: mixins.customPropTypes.check,
--**trueValue**: mixins.customPropTypes.check,
--**falseValue**: mixins.customPropTypes.check
+> -**extends mixins.inputPropTypes**
+>
+> -**value**: mixins.customPropTypes.check,
+>
+> -**trueValue**: mixins.customPropTypes.check,
+>
+> -**falseValue**: mixins.customPropTypes.check
+
 
 DefaultProps:
 
--**hide**: false,
--**disabled**: false,
--**readOnly**: false,
--**style**: {}
--**trueValue**:  true,
--**falseValue**: false
+> -**hide**: false,
+>
+> -**disabled**: false,
+>
+> -**readOnly**: false,
+>
+> -**style**: {}
+>
+> -**trueValue**:  true,
+>
+> -**falseValue**: false
 
 Using:
-*Nếu trueValue không xác định thì trueValue mặc định là true,
-*Nếu falseValue không xác định thì falseValue mặc định là false
 
-*Khi checkbox được checked thì gía trị trả về sẽ là trueValue
-*Khi checkbox unchecked thì gía trị trả về sẽ là falseValue
+> *Nếu trueValue không xác định thì trueValue mặc định là true,
+>
+> *Nếu falseValue không xác định thì falseValue mặc định là false
+>
+> *Khi checkbox được checked thì gía trị trả về sẽ là trueValue
+>
+> *Khi checkbox unchecked thì gía trị trả về sẽ là falseValue
+>
+> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
+> dụng cho nhiều form input tag
 
-Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
 
 
     class Test extends Component{
@@ -151,29 +170,43 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 **2.2 CheckboxGroup**
 ---------------------
 
-Sử dụng trong trường hợp:
-Gỉa sử có 4 checkbox:
-Checkbox value="apple"
-Checkbox value="orange"
-Checkbox value="watermelon"
-Checkbox value="banana"
-Khi check apple, orange, banana thì sẽ trả về mảng [apple,  orange, banana]
+**Sử dụng trong trường hợp:**
+
+> Gỉa sử có 4 checkbox:
+>
+> Checkbox value="apple"
+>
+> Checkbox value="orange"
+>
+> Checkbox value="watermelon"
+>
+> Checkbox value="banana"
+>
+> Khi check apple, orange, banana thì sẽ trả về mảng [apple,  orange,
+> banana]
 
 Props:
 
-**extends mixins.inputPropTypes**
--**value**: PropTypes.array
+> **extends mixins.inputPropTypes**
+>
+> -**value**: PropTypes.array
 
 DefaultProps:
 
--**hide**: false,
--**disabled**: false,
--**readOnly**: false,
--**style**: {}
+> -**hide**: false,
+>
+> -**disabled**: false,
+>
+> -**readOnly**: false,
+>
+> -**style**: {}
 
 Using:
-Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
-Đối với CheckboxGroup Bắt buộc cung cấp thuộc tính name
+
+> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
+> dụng cho nhiều form input tag
+>
+> Đối với CheckboxGroup Bắt buộc cung cấp thuộc tính name
 
     class Test extends Component{
       constructor(props) {
@@ -224,31 +257,39 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 **2.3 DatePicker**
 ------------------
 
-Dựa trên thư viện: https://bootstrap-datepicker.readthedocs.io/en/latest/
+**Dựa trên thư viện: https://bootstrap-datepicker.readthedocs.io/en/latest/**
 
 Props:
 
--**extends mixins.inputPropTypes**
--**datePickerOptions**: options của bootstrap-datepicker
--**value**: Proptypes.object (Date object)
+> -**extends mixins.inputPropTypes**
+>
+> -**datePickerOptions**: options của bootstrap-datepicker
+>
+> -**value**: Proptypes.object (Date object)
+
 
 DefaultProps:
 
--**hide**: false,
--**disabled**: false,
--**readOnly**: false,
--**style**: {},
--**datePickerOptions**: {
-	    //rtl: App.isRTL(),
-	    orientation: "left",
-	    format:'dd/mm/yyyy',
-	    startDate: '-3d',
-	    autoclose: !0,
-	    clearBtn: true,
-  }
+> -**hide**: false,
+>
+> -**disabled**: false,
+>
+> -**readOnly**: false,
+>
+> -**style**: {},
+>
+> -**datePickerOptions**: {
+> 	    //rtl: App.isRTL(),
+> 	    orientation: "left",
+> 	    format:'dd/mm/yyyy',
+> 	    startDate: '-3d',
+> 	    autoclose: !0,
+> 	    clearBtn: true,   }
 
 Using:
-Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
+
+> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
+> dụng cho nhiều form input tag
 
     class Test extends Component{
       constructor(props) {
@@ -312,56 +353,78 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 **2.4 File**
 ------------
 
-Xử dụng để chọn upload file và preview file upload
-InputFile component: chọn file để upload
-InputFileImagePreview: preview file upload
+> Xử dụng để chọn upload file và preview file upload
+>
+> InputFile component: chọn file để upload
+>
+> InputFileImagePreview: preview file upload
 
 **2.4.1 InputFile**
+
 Chọn file để upload
+
 Trả về mảng files
 
 Props:
 
--**extends mixins.inputPropTypes**
--**multiple**: PropTypes.bool. Cho phép chọn cùng lúc nhiều file hay không (true/false)
--**label**: PropTypes.string. Label của nút chọn file
--**files**: PropTypes.array. Danh sách các file đã được chọn
--**showInfo**: PropTypes.bool. Có hiện lên table thể hiện các file nào đã được chọn hay không
+> -**extends mixins.inputPropTypes**
+>
+> -**multiple**: PropTypes.bool. Cho phép chọn cùng lúc nhiều file hay không (true/false)
+>
+> -**label**: PropTypes.string. Label của nút chọn file
+>
+> -**files**: PropTypes.array. Danh sách các file đã được chọn
+>
+> -**showInfo**: PropTypes.bool. Có hiện lên table thể hiện các file nào đã được chọn hay không
 
 
 DefaultProps:
 
--**hide**: false,
--**disabled**: false,
--**readOnly**: false,
--**style**: {},
--**multiple**: false,
--**label**: 'Choose File',
--**files**: [],
--**showInfo**: true
+> -**hide**: false,
+>
+> -**disabled**: false,
+>
+> -**readOnly**: false,
+>
+> -**style**: {},
+>
+> -**multiple**: false,
+>
+> -**label**: 'Choose File',
+>
+> -**files**: [],
+>
+> -**showInfo**: true
 
 **2.4.2 InputFileImagePreview**
+
 Sử dụng để preview file upload
 
 Props:
-Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
--**id**: PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
-  ]),
--**style**: PropTypes.object,
--**className**: PropTypes.string,
--**name**: PropTypes.string,
--**hide**: PropTypes.bool,
--**file**: PropTypes.object
+
+> -**id**: PropTypes.oneOfType([
+>     React.PropTypes.string,
+>     React.PropTypes.number,   ]),
+> -**style**: PropTypes.object,
+>
+> -**className**: PropTypes.string,
+>
+> -**name**: PropTypes.string,
+>
+> -**hide**: PropTypes.bool,
+>
+> -**file**: PropTypes.object
 
 DefaultProps:
 
-**hide**: false,
- -**style**: {}
+> **hide**: false,
+>
+>  -**style**: {}
 
 Using:
-Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
+
+> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
+> dụng cho nhiều form input tag
 
     class Test extends Component{
       constructor(props) {
@@ -405,17 +468,22 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 
 Props:
 
--**extends mixins.inputPropTypes**
+> -**extends mixins.inputPropTypes**
 
 DefaultProps:
 
--**hide**: false,
--**disabled**: false,
--**readOnly**: false,
--**style**: {}
+> -**hide**: false,
+>
+> -**disabled**: false,
+>
+> -**readOnly**: false,
+>
+> -**style**: {}
 
 Using:
-Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
+
+> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
+> dụng cho nhiều form input tag
 
     class Test extends Component{
       constructor(props) {
@@ -453,11 +521,15 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 **2.6 Modal**
 -------------
 
-Dựa trên boostrap 3 Modal
--Modal Component
--ModalHeader Component
--ModalBody Comonent
--ModalFooter Component
+> Dựa trên boostrap 3 Modal
+>
+> -Modal Component
+>
+> -ModalHeader Component
+>
+> -ModalBody Comonent
+>
+> -ModalFooter Component
 
     <Modal>
     	<ModalHeader></ModalHeader>
@@ -469,83 +541,102 @@ Dựa trên boostrap 3 Modal
 
 Props:
 
--**className**: PropTypes.string,
--**style**: PropTypes.object,
--**tabIndex**: PropTypes.oneOfType([
-  React.PropTypes.string,
-  React.PropTypes.number,
-]),
--**size**: PropTypes.string, //null, modal-lg, modal-sm,
--**onShow**: PropTypes.func,
--**onShown**: PropTypes.func,
--**onHide**: PropTypes.func,
--**onHidden**: PropTypes.func,
--**onLoaded**: PropTypes.func
+> -**className**: PropTypes.string,
+>
+> -**style**: PropTypes.object,
+>
+> -**tabIndex**: PropTypes.oneOfType([   React.PropTypes.string,   React.PropTypes.number, ]),
+>
+> -**size**: PropTypes.string, //null, modal-lg, modal-sm,
+>
+> -**onShow**: PropTypes.func,
+>
+> -**onShown**: PropTypes.func,
+>
+> -**onHide**: PropTypes.func,
+>
+> -**onHidden**: PropTypes.func,
+>
+> -**onLoaded**: PropTypes.func
 
 DefaultProps:
--**style**: {},
--**tabIndex**: -1,
--**size**: null
+
+> -**style**: {},
+>
+> -**tabIndex**: -1,
+>
+> -**size**: null
 
 Functions:
 
-- **Action (name, options)**
-name:
-+ "show": tương ứng: domElement.modal("show")
-+ "hide": tương ứng: domElement.modal("hide")
-+ "toggle": tương ứng: domElement.modal("toggle")
-+ "handleUpdate": tương ứng: domElement.modal("handleUpdate")
-+ "options": tương ứng: domElement.modal(options)
+> - **Action (name, options)** name:
+>
+>+"show": tương ứng: domElement.modal("show")
+>
+> +"hide": tương ứng: domElement.modal("hide")
+>
+> +"toggle": tương ứng: domElement.modal("toggle")
+>
+> +"handleUpdate": tương ứng: domElement.modal("handleUpdate")
+>
+> +"options": tương ứng: domElement.modal(options)
 
 **2.6.2 ModalHeader**
-Chứa phần header của modal
+
+> Chứa phần header của modal
 
 Props:
 
--**className**: PropTypes.string,
--**style**: PropTypes.object,
--**hide**: PropTypes.bool,
--**title**: PropTypes.oneOfType([
-	  React.PropTypes.string,
-	  React.PropTypes.number,
-])
+> -**className**: PropTypes.string,
+>
+> -**style**: PropTypes.object,
+>
+> -**hide**: PropTypes.bool,
+>
+> -**title**: PropTypes.oneOfType([ 	  React.PropTypes.string, 	  React.PropTypes.number, ])
 
 DefaultProps:
 
--**style**: {},
--**hide**: false
+> -**style**: {},
+>
+> -**hide**: false
 
 **2.6.3 ModalBody**
+
 Chứ nội dung chính của modal
 
 Props:
--**className**: PropTypes.string,
--**style**: PropTypes.object,
--**hide**: PropTypes.bool
+
+> -**className**: PropTypes.string,
+>
+> -**style**: PropTypes.object,
+>
+> -**hide**: PropTypes.bool
 
 DefaultProps:
--**style**: {},
--**hide**: false
+
+> -**style**: {},
+> -**hide**: false
 
 2.6.4 ModalFooter:
 Chứ phần footer của modal
 
 Props:
 
--**className**: PropTypes.string,
--**style**: PropTypes.object,
--**hide**: PropTypes.bool,
--**haveCloseBtn**: PropTypes.bool, //Có button close modal hay không, mặc định là true
--**closeBtnClassName**: PropTypes.string, //Style của button close
--**closeBtnLabel**: PropTypes.string //Lable của button close
+> -**className**: PropTypes.string,
+> -**style**: PropTypes.object,
+> -**hide**: PropTypes.bool,
+> -**haveCloseBtn**: PropTypes.bool, //Có button close modal hay không, mặc định là true
+> -**closeBtnClassName**: PropTypes.string, //Style của button close
+> -**closeBtnLabel**: PropTypes.string //Lable của button close
 
 DefaultProps:
 
--**style**: {},
--**hide**: false,
--**haveCloseBtn**: true,
--**closeBtnClassName**: 'btn btn-default',
--**closeBtnLabel**: 'Close'
+> -**style**: {},
+> -**hide**: false,
+> -**haveCloseBtn**: true,
+> -**closeBtnClassName**: 'btn btn-default',
+> -**closeBtnLabel**: 'Close'
 
 Using:
 
@@ -599,25 +690,25 @@ Using:
 Dựa vào bootstrap 3 Pagination,
 
 Props:
--**Kế thừa các thuộc tính của : https://www.npmjs.com/package/react-js-pagination#params**
--**id**: PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
-  ]),
--**style**: PropTypes.object,
--**className**: PropTypes.string,
--**onChangeValue**: PropTypes.func, //Sự kiện khi click vào 1 trang
--**name**: PropTypes.string,
--**disabled**: PropTypes.bool,
--**hide**: PropTypes.bool,
--**ariaLabel**: PropTypes.string
+
+> -**Kế thừa các thuộc tính của : https://www.npmjs.com/package/react-js-pagination#params**
+> -**id**: PropTypes.oneOfType([
+>     React.PropTypes.string,
+>     React.PropTypes.number,   ]),
+> -**style**: PropTypes.object,
+> -**className**: PropTypes.string,
+> -**onChangeValue**: PropTypes.func, //Sự kiện khi click vào 1 trang
+> -**name**: PropTypes.string,
+> -**disabled**: PropTypes.bool,
+> -**hide**: PropTypes.bool,
+> -**ariaLabel**: PropTypes.string
 
 Default Props:
 
--**hide**: false,
--**disabled**: false,
--**style**: {},
--**ariaLabel**: 'Page navigation'
+> -**hide**: false,
+> -**disabled**: false,
+> -**style**: {},
+> -**ariaLabel**: 'Page navigation'
 
 Using:
 
@@ -661,11 +752,10 @@ Using:
 **2.8 RadioGroup**
 ------------------
 
-Dựa trên thư viện
-https://www.npmjs.com/package/react-radio-group
-https://github.com/chenglou/react-radio-group
-- RadioGroup Component
-- Radio Component
+> Dựa trên thư viện  https://www.npmjs.com/package/react-radio-group
+> https://github.com/chenglou/react-radio-group
+> - RadioGroup Component
+> - Radio Component
 
 **2.8.1 RadioGroup Component**
 
@@ -674,10 +764,11 @@ Props:
 - **Kế thừa mixins.inputPropTypes**
 
 DefaultProps:
--**hide**: false,
--**disabled**: false,
--**readOnly**: false,
--**style**: {}
+
+> -**hide**: false,
+> -**disabled**: false,
+> -**readOnly**: false,
+> -**style**: {}
 
 **2.8.2 Radio Component**
 
@@ -692,8 +783,10 @@ DefaultProps:
 -**style**: {}
 
 Using:
-Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
-Đối với radioGroup thì bắt buộc sử dụng name
+
+> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
+> dụng cho nhiều form input tag Đối với radioGroup thì bắt buộc sử dụng
+> name
 
 
     class Test extends Component{
@@ -745,31 +838,23 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 **2.9 Select**
 --------------
 
-**Nếu multiple = true thì select sẽ trả về array**
-**Nếu multiple = false thì select chỉ trả về 1 gía trị duy nhất(string/number)**
+> **Nếu multiple = true thì select sẽ trả về array**
+> **Nếu multiple = false thì select chỉ trả về 1 gía trị duy nhất(string/number)**
 
 Props:
 
--**multiple**: PropTypes.bool, //Có cho select nhiều item hay không
--**options**: PropTypes.array,
--**defaultValue**: PropTypes.oneOfType([
-  React.PropTypes.string,
-  React.PropTypes.number,
-  React.PropTypes.array
-]),
--**value**: PropTypes.oneOfType([
-  React.PropTypes.string,
-  React.PropTypes.number,
-  React.PropTypes.array
-]),
+> -**multiple**: PropTypes.bool, //Có cho select nhiều item hay không
+> -**options**: PropTypes.array,
+> -**defaultValue**: PropTypes.oneOfType([   React.PropTypes.string,   React.PropTypes.number,   React.PropTypes.array ]),
+> -**value**: PropTypes.oneOfType([   React.PropTypes.string,   React.PropTypes.number,   React.PropTypes.array ]),
 
 DefaultProps:
 
--**multiple**: false,
--**hide**: false,
--**disabled**: false,
--**readOnly**: false,
--**style**: {}
+> -**multiple**: false,
+> -**hide**: false,
+> -**disabled**: false,
+> -**readOnly**: false,
+> -**style**: {}
 
 Using:
 
@@ -826,15 +911,15 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 
 Props:
 
--**Kế thừa mixins.inputPropsTypes**
--**rows**: PropTypes.number
+> -**Kế thừa mixins.inputPropsTypes**
+> -**rows**: PropTypes.number
 
 Default Props:
 
--**hide**: false,
--**disabled**: false,
--**readOnly**: false,
--**style**: {}
+> -**hide**: false,
+> -**disabled**: false,
+> -**readOnly**: false,
+> -**style**: {}
 
 Using:
 
@@ -877,31 +962,41 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 **2.11 TimePicker**
 -------------------
 
-Dựa vào thư viện: 
-https://jdewit.github.io/bootstrap-timepicker/
-https://www.npmjs.com/package/bootstrap-timepicker
-Gía trị trả về dạng: 15:30:25 hoặc 3:30:25 PM 
+> Dựa vào thư viện:
+>
+> https://jdewit.github.io/bootstrap-timepicker/
+>
+> https://www.npmjs.com/package/bootstrap-timepicker
+>
+> Gía trị trả về dạng: 15:30:25 hoặc 3:30:25 PM
 
 PropTypes:
 
--**Kế thừa mixins.inputPropTypes**
--**timepickerOptions**: PropTypes.object // Các props của bootstrap-timepicker http://jdewit.github.io/bootstrap-timepicker/
--**onShow**: PropTypes.func,
--**onHide**: PropTypes.func
+> -**Kế thừa mixins.inputPropTypes**
+>
+> -**timepickerOptions**: PropTypes.object // Các props của bootstrap-timepicker http://jdewit.github.io/bootstrap-timepicker/
+>
+> -**onShow**: PropTypes.func,
+>
+> -**onHide**: PropTypes.func
 
 Default Props:
 
--**hide**: false,
--**disabled**: false,
--**readOnly**: false,
--**style**: {},
--**timepickerOptions**: {
-  template: 'dropdown',
-  minuteStep: 15,
-  secondStep: 15,
-  defaultTime: 'current',
-  showMeridian: false, //hien AM/PM hay khong
-}
+> -**hide**: false,
+>
+> -**disabled**: false,
+>
+> -**readOnly**: false,
+>
+> -**style**: {},
+>
+> -**timepickerOptions**: {
+>
+> 	  template: 'dropdown',
+> 	   	  minuteStep: 15,
+> 	   	  secondStep: 15,
+> 	   	  defaultTime: 'current',
+> 	   	  showMeridian: false, //hien AM/PM hay khong }
 
 Using:
 
