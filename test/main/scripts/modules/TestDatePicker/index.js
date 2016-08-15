@@ -21,7 +21,7 @@ class Test extends Component{
   }
 
   componentWillMount() {
-    this.datepickerOptions= {
+    this.datePickerOptions= {
       rtl: App.isRTL(),
       orientation: "left",
       format:'dd/mm/yyyy',
@@ -45,7 +45,7 @@ class Test extends Component{
 
   render() {
     return (
-      <DatePicker datepickerOptions={this.datepickerOptions}
+      <DatePicker datePickerOptions={this.datePickerOptions}
                   id = {1234}
                   hide={this.state.hide}
                   onChangeValue={this._onTestDatePickerChange.bind(this)}

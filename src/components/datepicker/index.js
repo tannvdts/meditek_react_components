@@ -1,96 +1,66 @@
+//https://bootstrap-datepicker.readthedocs.io/en/latest/
 import React, {Component, PropTypes} from 'react'
-class Datepicker extends Component {
-	getDefaultProps(){
-		return {
-			type: 1,
-			className: "col-lg-3 col-md-3",
-            labelWidth: "col-lg-8 col-md-8",
-		};
-	}
-	componentDidMount(){
+import mixins from '../mixins'
+class DatePicker extends Component {
+  constructor(props) {
+    super(props);
+    this.state={};
+  }
+
+	componentDidMount() {
 		var self = this;
-		$(this.refs.datepicker).datepicker({
-			// rtl: App.isRTL(),
-			orientation: "left",
-			format:'dd/mm/yyyy',
-			startDate: this.props.startDate,
-			autoclose: !0,
-		}).on("changeDate", function(){
-			if(typeof self.props.onChange !== 'undefined') {
-				self.props.onChange(self.refs.formGroup, self.refs.message);
-			}
-		});
-
-		if (this.props.type == 2) {
-            $(this.refs.labelWidth).addClass(this.props.labelWidth);
-            $(this.refs.inputWidth).addClass(this.props.inputWidth);
+		$(this.refs.datepicker)
+      .datepicker(this.props.datePickerOptions)
+      .on("changeDate", function(e){
+        console.log("DatePicker Component: changeDate:", e);
+        if(self.props.onChangeValue) {
+          self.props.onChangeValue(e.date);
         }
+		});
 	}
-	_setValue(value){
-		$(this.refs.datepicker).datepicker("setDate", value);
-	}
-	_getValue(){
-		return $(this.refs.datepicker).val();
-	}
-	_onChange() {
-		if(typeof this.props.onChange !== 'undefined') {
-			this.props.onChange(this.refs.formGroup, this.refs.message);
-		}
-	}
-	render(){
-		var id = this.props.id ? this.props.id : 'datepicker'
-		var required = this.props.required == true ? <span className="required"> * </span> : '';
-		var help_block = this.props.required == true ? <span className="help-block"> Provide your {this.props.label} </span> : '';
-		var r0 = 
-			<input type="text" 
-				name={this.props.name}
-				className="form-control" 
-				placeholder="dd/mm/yyyy"
-				readOnly="true"
-				required={this.props.required}
-				ref="datepicker"/>;
-		var r1 = 
-			<div className="form-group" ref="formGroup" id={id}>
-				<label className="control-label" ref="labelWidth">{this.props.label} {required}</label>
-				<input type="text" 
-					name={this.props.name}
-					className="form-control" 
-					ref="datepicker"
-					placeholder="dd/mm/yyyy"
-					required={this.props.required}
-					readOnly="true"
-					onChange={this._onChange.bind(this)} /> {help_block} <span ref="message" className="hide-element" style={{color:"#e73d4a"}}></span>
-			</div>;
-		var r2 = 
-			<div className="form-group" ref="formGroup" id={id}>
-				<label className="control-label" ref="labelWidth" ref="labelWidth">{this.props.label} {required}</label>
-				<div ref="inputWidth">
-					<input type="text" 
-						name={this.props.name}
-						className="form-control" 
-						ref="datepicker"
-						placeholder="dd/mm/yyyy"
-						required={this.props.required}
-						readOnly="true"
-						onChange={this._onChange.bind(this)} /> {help_block} <span ref="message" className="hide-element" style={{color:"#e73d4a"}}></span>
-				</div>
-			</div>;
 
-		if (this.props.type == 2) return r2;
-		if (this.props.type == 0) return r0;
-		return r1;
+
+	render(){
+    const {style, onChangeValue, value, ...other} = this.props;
+    //Xu ly display
+    let displayValue = null;
+    if (value) {
+      let fm = 'DD/MM/YYYY';
+      if (this.props.datePickerOptions.format)
+        fm = this.props.datePickerOptions.format.toUpperCase();
+      displayValue = moment(value).format(fm);
+    }
+    //Xu ly style
+    let styleMix = _.assignIn({}, style);
+    if (this.props.hide == true) {
+      styleMix.display = 'none'
+    }
+    return <input type="text"
+              {...other}
+              style={styleMix}
+              ref="datepicker"
+              value = {displayValue}
+            />
 	}
 }
-Datepicker.propTypes = {
-  type: PropTypes.number,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  required: PropTypes.bool,
-  labelWidth: PropTypes.string,
-  inputWidth: PropTypes.string,
-  startDate: PropTypes.string,
-  endDate: PropTypes.string,
-  onChange: PropTypes.func,
-  id: PropTypes.string,
+
+DatePicker.propTypes = _.assignIn({}, mixins.inputPropTypes, {
+  datePickerOptions: PropTypes.object,
+  value: PropTypes.object
+});
+
+DatePicker.defaultProps = {
+  hide: false,
+  disabled: false,
+  readOnly: false,
+  style: {},
+  datePickerOptions: {
+    rtl: App.isRTL(),
+    orientation: "left",
+    format:'dd/mm/yyyy',
+    startDate: '-3d',
+    autoclose: !0,
+    clearBtn: true,
+  }
 }
-export default Datepicker
+export default DatePicker

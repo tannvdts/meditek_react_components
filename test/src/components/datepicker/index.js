@@ -10,7 +10,7 @@ class DatePicker extends Component {
 	componentDidMount() {
 		var self = this;
 		$(this.refs.datepicker)
-      .datepicker(this.props.datepickerOptions)
+      .datepicker(this.props.datePickerOptions)
       .on("changeDate", function(e){
         console.log("DatePicker Component: changeDate:", e);
         if(self.props.onChangeValue) {
@@ -26,8 +26,8 @@ class DatePicker extends Component {
     let displayValue = null;
     if (value) {
       let fm = 'DD/MM/YYYY';
-      if (this.props.datepickerOptions.format)
-        fm = this.props.datepickerOptions.format.toUpperCase();
+      if (this.props.datePickerOptions.format)
+        fm = this.props.datePickerOptions.format.toUpperCase();
       displayValue = moment(value).format(fm);
     }
     //Xu ly style
@@ -45,7 +45,7 @@ class DatePicker extends Component {
 }
 
 DatePicker.propTypes = _.assignIn({}, mixins.inputPropTypes, {
-  datepickerOptions: PropTypes.object,
+  datePickerOptions: PropTypes.object,
   value: PropTypes.object
 });
 
@@ -54,7 +54,7 @@ DatePicker.defaultProps = {
   disabled: false,
   readOnly: false,
   style: {},
-  datepickerOptions: {
+  datePickerOptions: {
     rtl: App.isRTL(),
     orientation: "left",
     format:'dd/mm/yyyy',

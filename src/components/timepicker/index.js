@@ -1,87 +1,80 @@
+/**
+ * Created by tannguyen on 08/08/2016.
+ */
+//https://jdewit.github.io/bootstrap-timepicker/
+//https://www.npmjs.com/package/bootstrap-timepicker
 import React, {Component, PropTypes} from 'react'
-class Timepicker extends Component {
-	getDefaultProps(){
-		return {
-			data_default_time: "",
-			className: "col-lg-3 col-md-3",
-            labelWidth: "col-lg-8 col-md-8",
-		};
-	}
-	componentDidMount(){
-		var self = this;
-		$(this.refs.timepicker).timepicker({
-			autoclose: false,
-            minuteStep: 1, // cach nhau bao nhieu phut
-            showSeconds: false, //show giay
-            showMeridian: false, // khong su dung kieu format AM PM
-		}).on("change", function(){
-		});
+import mixins from '../mixins'
+import config from '../../config'
+class TimePicker extends Component {
 
-		if (this.props.type == 2) {
-            $(this.refs.labelWidth).addClass(this.props.labelWidth);
-            $(this.refs.inputWidth).addClass(this.props.inputWidth);
+  constructor(props) {
+    super(props)
+    this.state={}
+  }
+  componentDidMount(){
+    var self = this;
+    $(this.refs['input']).timepicker(this.props.timepickerOptions)
+    .on('show.timepicker', function(e) {
+      console.log("on show.timepicker", e);
+      if(self.props.onShow)
+        self.props.onShow(e);
+    })
+    .on('hide.timepicker', function(e) {
+      console.log("on hide.timepicker", e);
+      if(self.props.onHide)
+        self.props.onHide(e);
+    })
+    .on('changeTime.timepicker', function(e) {
+      console.log("on changeTime.timepicker", e);
+      if (self.props.onChangeValue)
+      {
+        if(self.props.timepickerOptions.showMeridian === false) {
+          self.props.onChangeValue(e.time.hours+":"+config.pad(e.time.minutes,2)+":"+config.pad(e.time.seconds,2));
+        } else {
+          self.props.onChangeValue(e.time.hours+":"+config.pad(e.time.minutes,2)+":"+config.pad(e.time.seconds,2)+" "+e.time.meridian);
         }
-	}
-	_setValue(value){
-		$(this.refs.timepicker).timepicker('setTime', value);
-	}
-	_getValue(){
-		return $(this.refs.timepicker).val();
-	}
-	render(){
-		var required = this.props.required == true ? <span className="required"> * </span> : '';
-		var help_block = this.props.required == true ? <span className="help-block"> Provide your {this.props.label} </span> : '';
+      }
+    })
+  }
 
-		var r0 =
-			<input type="text" 
-				name={this.props.name}
-				className="form-control" 
-				ref="timepicker"
-				placeholder="hh:mm"
-				required={this.props.required}
-				data-default-time={this.props.data_default_time}
-				readOnly="true" />
-		// form group
-		var r1 = 
-			<div className="form-group">
-				<label className="control-label">{this.props.label} {required}</label>
-				<input type="text" 
-					name={this.props.name}
-					className="form-control" 
-					ref="timepicker"
-					placeholder="hh:mm"
-					required={this.props.required}
-					data-default-time={this.props.data_default_time}
-					readOnly="true" /> {help_block}
-			</div>;
+  _onChange(e) {
+    if(typeof this.props.onChangeValue !== 'undefined') {
+      this.props.onChangeValue(e.target.value);
+    }
+  }
 
-		// form group inline
-		var r2 =
-			<div className="form-group">
-				<label className="control-label" ref="labelWidth">{this.props.label} {required}</label>
-				<div ref="inputWidth">
-					<input type="text" 
-						name={this.props.name}
-						className="form-control" 
-						ref="timepicker"
-						placeholder="hh:mm"
-						required={this.props.required}
-						data-default-time={this.props.data_default_time}
-						readOnly="true" /> {help_block}
-				</div>
-			</div>;
-		if (this.props.type == 2) return r2;
-		if (this.props.type == 0) return r0;
-		return r1;
-	}
+  render(){
+    const  {style, onChangeValue, ...other } = this.props;
+    let styleMix = _.assignIn({}, style);
+    if (this.props.hide == true) {
+      styleMix.display = 'none'
+    }
+
+    return <input ref="input"
+                  type="text"
+                  {...other}
+                  style={styleMix}
+                  onChange={this._onChange.bind(this)}
+            />
+
+  }
 }
-Timepicker.propTypes = {
-  type: PropTypes.number,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  data_default_time: PropTypes.string,
-  required: PropTypes.bool,
-  labelWidth: PropTypes.string,
-  inputWidth: PropTypes.string,
+TimePicker.propTypes = _.assignIn({}, mixins.inputPropTypes, {
+  timepickerOptions: PropTypes.object
+})
+TimePicker.defaultProps = {
+  hide: false,
+  disabled: false,
+  readOnly: false,
+  style: {},
+  timepickerOptions: {
+    template: 'dropdown',
+    minuteStep: 15,
+    secondStep: 15,
+    defaultTime: 'current',
+    showMeridian: false, //hien AM/PM hay khong
+  }
 }
-export default Timepicker
+export default TimePicker
+

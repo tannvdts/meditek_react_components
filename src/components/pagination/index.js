@@ -1,53 +1,64 @@
 import React, {Component, PropTypes} from 'react'
-class Pagination extends Component {
-	constructor(){
-		super();
-		this.data = {
-			activePage:1,
-            item : 10,
-            maxButtons: 5,
-		};
-	}
-	getInitialState(){
-		return {
-            
-        };
-	}
-    init(obj) {
-        if(!_.isEmpty(obj)) {
-            this.data = obj;
-        }
-        var self = this;
-        var id = this.props.id ? '#' + this.props.id : '#pagination'
-        $(id).empty();
-        $(id).removeData("twbs-pagination");
-        $(id).unbind("page");
-        $(id).twbsPagination({
-            totalPages:this.data.item,
-            visiblePages:this.data.maxButtons,
-            initiateStartPageClick:false,
-			onPageClick: function (event, page) {
-				if(typeof self.props.onChange !== 'undefined'){
-		            self.props.onChange(page);
-		        }
-	        }
-        });
-    }
-    componentDidMount() {
+import Pagination from "react-js-pagination"
+class PaginationCustom extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state={}
+  }
+  componentDidMount(){
+  }
+
+  _onChange(pageNumber) {
+    console.log(`Pagination Component: active page is ${pageNumber}`);
+    if(this.props.onChangeValue) {
+      this.props.onChangeValue(pageNumber);
     }
-	render(){
-        var id = this.props.id ? this.props.id : 'pagination'
-		return(
-            <ul id={id} className="pagination-sm"></ul>
-        )
-	}
+
+  }
+
+  render(){
+    const  {id, style, className, onChangeValue, name, disabled, hide, ariaLabel, ...other } = this.props;
+    let styleMix = _.assignIn({}, style);
+    if (this.props.hide == true) {
+      styleMix.display = 'none'
+    }
+
+    return (
+      <nav
+        id={id}
+        style={styleMix}
+        className={className}
+        name={name}
+        disabled={disabled}
+        hide={hide}
+        aria-label={ariaLabel}
+      >
+        <Pagination
+          {...other}
+          onChange={this._onChange.bind(this)}/>
+      </nav>
+    )
+
+  }
 }
-Pagination.propTypes = {
-  item : PropTypes.number,
-  maxButtons: PropTypes.number,
-  activePage: PropTypes.number,
-  onChange: PropTypes.func,
-  id: PropTypes.string,
+PaginationCustom.propTypes = _.assignIn({}, {
+  id: PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ]),
+  style: PropTypes.object,
+  className: PropTypes.string,
+  onChangeValue: PropTypes.func,
+  name: PropTypes.string,
+  disabled: PropTypes.bool,
+  hide: PropTypes.bool,
+  ariaLabel: PropTypes.string
+})
+PaginationCustom.defaultProps = {
+  hide: false,
+  disabled: false,
+  style: {},
+  ariaLabel: 'Page navigation'
 }
-export default Pagination
+export default PaginationCustom

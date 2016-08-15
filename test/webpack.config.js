@@ -7,14 +7,14 @@ module.exports = {
     'TestComponent-bk2'     : path.join(process.cwd(), 'main/scripts/modules/TestDatePicker'),
     'TestComponent-bk3'     : path.join(process.cwd(), 'main/scripts/modules/Test'),
     'TestComponent-bk5'     : path.join(process.cwd(), 'main/scripts/modules/TestCheckbox'),
-    'TestComponent-bk6'     : path.join(process.cwd(), 'main/scripts/modules/TestRadio'),
+    'TestComponent-bk6'     : path.join(process.cwd(), 'main/scripts/modules/TestRadioGroup'),
     'TestComponent-bk7'     : path.join(process.cwd(), 'main/scripts/modules/TestSelect'),
     'TestComponent-bk8'     : path.join(process.cwd(), 'main/scripts/modules/TestTextarea'),
     'TestComponent-bk9'     : path.join(process.cwd(), 'main/scripts/modules/TestModal'),
     'TestComponent-bk10'     : path.join(process.cwd(), 'main/scripts/modules/TestTimePicker'),
     'TestComponent-bk11'     : path.join(process.cwd(), 'main/scripts/modules/TestFile'),
     'TestComponent-bk12'     : path.join(process.cwd(), 'main/scripts/modules/TestPagination'),
-    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestPagination'),
+    'TestComponent'     : path.join(process.cwd(), 'main/scripts/modules/TestCheckboxGroup'),
 
   },
   output: {
