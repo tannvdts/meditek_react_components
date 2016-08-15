@@ -20,10 +20,10 @@ class Select extends Component {
           values.push(options[i].value);
         }
       }
-      this.props.onChangeValue(values);
+      this.props.onChangeValue(values, this.props.name);
       console.log("Select Component: _onChange:", values);
     } else {
-      this.props.onChangeValue(e.target.value);
+      this.props.onChangeValue(e.target.value, this.props.name);
       console.log("Select Component: _onChange:", e.target.value)
 
     }

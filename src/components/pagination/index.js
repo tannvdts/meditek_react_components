@@ -1,5 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import Pagination from "react-js-pagination"
+//https://www.npmjs.com/package/react-js-pagination
+//https://github.com/vayser/react-js-pagination
 class PaginationCustom extends Component {
 
   constructor(props) {

@@ -30,9 +30,9 @@ class TimePicker extends Component {
       if (self.props.onChangeValue)
       {
         if(self.props.timepickerOptions.showMeridian === false) {
-          self.props.onChangeValue(e.time.hours+":"+config.pad(e.time.minutes,2)+":"+config.pad(e.time.seconds,2));
+          self.props.onChangeValue(e.time.hours+":"+config.pad(e.time.minutes,2)+":"+config.pad(e.time.seconds,2), self.props.name);
         } else {
-          self.props.onChangeValue(e.time.hours+":"+config.pad(e.time.minutes,2)+":"+config.pad(e.time.seconds,2)+" "+e.time.meridian);
+          self.props.onChangeValue(e.time.hours+":"+config.pad(e.time.minutes,2)+":"+config.pad(e.time.seconds,2)+" "+e.time.meridian, self.props.name);
         }
       }
     })
@@ -40,7 +40,7 @@ class TimePicker extends Component {
 
   _onChange(e) {
     if(typeof this.props.onChangeValue !== 'undefined') {
-      this.props.onChangeValue(e.target.value);
+      this.props.onChangeValue(e.target.value, this.props.name);
     }
   }
 
@@ -51,7 +51,7 @@ class TimePicker extends Component {
       styleMix.display = 'none'
     }
 
-    return <input ref="input"
+    return <input ref="input"Usin
                   type="text"
                   {...other}
                   style={styleMix}
@@ -61,7 +61,9 @@ class TimePicker extends Component {
   }
 }
 TimePicker.propTypes = _.assignIn({}, mixins.inputPropTypes, {
-  timepickerOptions: PropTypes.object
+  timepickerOptions: PropTypes.object,
+  onShow: PropTypes.func,
+  onHide: PropTypes.func
 })
 TimePicker.defaultProps = {
   hide: false,

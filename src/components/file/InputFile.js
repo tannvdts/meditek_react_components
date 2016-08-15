@@ -33,7 +33,7 @@ class InputFile extends Component {
         }
       }
     }
-    this.props.onChangeValue(_.cloneDeep(this.filesHandling));
+    this.props.onChangeValue(_.cloneDeep(this.filesHandling), this.props.name);
     this.refs['inputFile'].value ="";
   }
 
@@ -47,7 +47,7 @@ class InputFile extends Component {
       let file = this.filesHandling[i];
       if (file.name === name) {
         this.filesHandling.splice(i, 1);
-        this.props.onChangeValue(_.cloneDeep(this.filesHandling));
+        this.props.onChangeValue(_.cloneDeep(this.filesHandling), this.props.name);
         break;
       }
     }

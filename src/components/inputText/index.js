@@ -11,7 +11,7 @@ class InputText extends Component {
 
 	_onChange(e) {
 		if(typeof this.props.onChangeValue !== 'undefined') {
-      this.props.onChangeValue(e.target.value);
+      this.props.onChangeValue(e.target.value, this.props.name);
 		}
 	}
 

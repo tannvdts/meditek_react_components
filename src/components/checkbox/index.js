@@ -14,7 +14,7 @@ class Checkbox extends Component {
     if(this.props.onChangeValue) {
       var trueValueCal = this.props.trueValue!==undefined?this.props.trueValue:true;
       var falseValueCal =  this.props.falseValue!==undefined?this.props.falseValue:false;
-      this.props.onChangeValue(e.target.checked?trueValueCal:falseValueCal);
+      this.props.onChangeValue(e.target.checked?trueValueCal:falseValueCal, this.props.name);
     }
   }
 
@@ -48,7 +48,9 @@ Checkbox.defaultProps = {
   hide: false,
   disabled: false,
   readOnly: false,
-  style: {}
+  style: {},
+  trueValue: true,
+  falseValue: false
 }
 
 
