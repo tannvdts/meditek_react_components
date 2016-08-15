@@ -13,11 +13,13 @@ class Test extends Component{
     }
   }
 
-  _onTestInputChange(value) {
+  _onTestInputChange(value, name) {
     console.log(value)
-    this.setState({
-      testInputValue:value
-    })
+    var newState = {};
+    if(name === 'myInput') {
+      newState.testInputValue = value;
+    }
+    this.setState(newState);
   }
 
   componentDidMount() {
@@ -26,7 +28,7 @@ class Test extends Component{
 
   render() {
     return (
-      <InputText id = {1234} hide={this.state.hide} value={this.state.testInputValue} onChangeValue={this._onTestInputChange.bind(this)} className='form-control'/>
+      <InputText id = {1234} name={"myInput"} hide={this.state.hide} value={this.state.testInputValue} onChangeValue={this._onTestInputChange.bind(this)} className='form-control'/>
     )
   }
 }

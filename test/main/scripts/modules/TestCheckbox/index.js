@@ -9,15 +9,15 @@ class Test extends Component{
     super(props);
     this.state = {
       hide: false,
-      testCheckboxValue: 'YES',
+      testCheckboxABCValue: 'YES',
     }
   }
 
-  _onTestCheckboxChange(value) {
-    console.log("Test: _onTestCheckboxChange:", value);
-    this.setState({
-      testCheckboxValue: value
-    })
+  _onTestCheckboxChange(value, name) {
+    console.log("Test: _onTestCheckboxChange:", value, 'name: ', name);
+    var newState = {};
+    if (name==='testCheckboxABCValue') newState.testCheckboxABCValue = value;
+    this.setState(newState);
   }
 
   componentDidMount() {
@@ -28,8 +28,9 @@ class Test extends Component{
     return (
       <Checkbox
         id = {1234}
+        name = "testCheckboxABCValue"
         hide={this.state.hide}
-        value={this.state.testCheckboxValue}
+        value={this.state.testCheckboxABCValue}
         trueValue="YES"
         falseValue="NO"
         onChangeValue={this._onTestCheckboxChange.bind(this)}/>

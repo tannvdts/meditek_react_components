@@ -55,7 +55,7 @@ DatePicker.defaultProps = {
   readOnly: false,
   style: {},
   datePickerOptions: {
-    rtl: App.isRTL(),
+    //rtl: App.isRTL(),
     orientation: "left",
     format:'dd/mm/yyyy',
     startDate: '-3d',

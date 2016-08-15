@@ -10,7 +10,6 @@ class Test extends Component{
     super(props);
     this.state = {
       hide: false,
-      testInputValue: 'tan',
       activePage: 4,
       totalItemsCount: 450
     }

@@ -48,7 +48,9 @@ Checkbox.defaultProps = {
   hide: false,
   disabled: false,
   readOnly: false,
-  style: {}
+  style: {},
+  trueValue: true,
+  falseValue: false
 }
 
 

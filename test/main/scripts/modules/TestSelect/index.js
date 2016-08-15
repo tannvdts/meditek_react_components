@@ -13,11 +13,13 @@ class Test extends Component{
     }
   }
 
-  _onTestSelectChange(value) {
+  _onTestSelectChange(value, name) {
     console.log("TestSelect: change:", value);
-    this.setState({
-      testSelect:value
-    })
+    var newState = {};
+    if(name ==='mySelect') {
+      newState.testSelect = value;
+    }
+    this.setState(newState);
   }
 
   componentDidMount() {
@@ -32,7 +34,12 @@ class Test extends Component{
       {name: 'item 4', value: 4},
     ]
     return (
-      <Select id = {1234} hide={this.state.hide} value={this.state.testSelect} onChangeValue={this._onTestSelectChange.bind(this)} className='form-control' options={options}>
+      <Select id = {1234}
+              name = "mySelect"
+              hide={this.state.hide}
+              value={this.state.testSelect}
+              onChangeValue={this._onTestSelectChange.bind(this)}
+              className='form-control' options={options}>
         <option value={null}></option>
       </Select>
     )

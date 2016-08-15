@@ -13,11 +13,13 @@ class Test extends Component{
     }
   }
 
-  _onTestTextareaChange(value) {
+  _onTestTextareaChange(value, name) {
     console.log("TestTextarea:_onTestTextareaChange", value)
-    this.setState({
-      testTextarea:value
-    })
+    var newState = {};
+    if(name === 'myTextArea') {
+      newState.testTextarea = value;
+    }
+    this.setState(newState);
   }
 
   componentDidMount() {
@@ -26,7 +28,12 @@ class Test extends Component{
 
   render() {
     return (
-      <Textarea id = {1234} hide={this.state.hide} value={this.state.testTextarea} onChangeValue={this._onTestTextareaChange.bind(this)} className='form-control' rows={6}/>
+      <Textarea id = {1234}
+                name="myTextArea"
+                hide={this.state.hide}
+                value={this.state.testTextarea}
+                onChangeValue={this._onTestTextareaChange.bind(this)}
+                className='form-control' rows={6}/>
     )
   }
 }

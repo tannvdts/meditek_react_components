@@ -13,10 +13,12 @@ class Test extends Component{
     }
   }
 
-  _onTestRadioChange(value) {
-    this.setState({
-      testRadioSelectedValue:value
-    })
+  _onTestRadioChange(value, name) {
+    var newState = {};
+    if(name === 'fruit') {
+      newState.testRadioSelectedValue = value;
+    }
+    this.setState(newState);
   }
 
   componentDidMount() {

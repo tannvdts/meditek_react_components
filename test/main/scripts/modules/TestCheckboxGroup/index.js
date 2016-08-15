@@ -13,10 +13,12 @@ class Test extends Component{
     }
   }
 
-  _onTestCheckboxGroupChange(values) {
-    this.setState({
-      testCheckboxGroupSelectedValues:values
-    })
+  _onTestCheckboxGroupChange(values, name) {
+    var newState = {};
+    if(name === 'fruit') {
+      newState.testCheckboxGroupSelectedValues = values;
+    }
+    this.setState(newState);
   }
 
   componentDidMount() {

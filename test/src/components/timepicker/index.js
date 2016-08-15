@@ -51,7 +51,7 @@ class TimePicker extends Component {
       styleMix.display = 'none'
     }
 
-    return <input ref="input"
+    return <input ref="input"Usin
                   type="text"
                   {...other}
                   style={styleMix}
@@ -61,7 +61,9 @@ class TimePicker extends Component {
   }
 }
 TimePicker.propTypes = _.assignIn({}, mixins.inputPropTypes, {
-  timepickerOptions: PropTypes.object
+  timepickerOptions: PropTypes.object,
+  onShow: PropTypes.func,
+  onHide: PropTypes.func
 })
 TimePicker.defaultProps = {
   hide: false,

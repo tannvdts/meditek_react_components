@@ -13,10 +13,12 @@ class Test extends Component{
     }
   }
 
-  _onTestFileInputChange(fileList) {
-    this.setState({
-      files: fileList
-    })
+  _onTestFileInputChange(fileList, name) {
+    var newState = {};
+    if(name === 'TestFile') {
+      newState.files = fileList;
+    }
+    this.setState(newState);
   }
 
   componentDidMount() {
@@ -26,7 +28,7 @@ class Test extends Component{
   render() {
     return (
       <div>
-        <InputFile showInfo={true} multiple={true} files={this.state.files} onChangeValue={this._onTestFileInputChange.bind(this)}/>
+        <InputFile showInfo={true} multiple={true} name={'TestFile'} files={this.state.files} onChangeValue={this._onTestFileInputChange.bind(this)}/>
         {this.state.files.map((file, index) => {
           return <InputFileImagePreview file={file} style = {{width: "100px"}} key={index}></InputFileImagePreview>
         })}

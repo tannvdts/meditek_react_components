@@ -38,11 +38,13 @@ class Test extends Component{
     console.log("_onChangeTime", e);
   }
 
-  _onTestTimePickerChange(value) {
+  _onTestTimePickerChange(value, name) {
     console.log("_onTestTimePickerChange", value);
-    this.setState({
-      testTimePicker:value
-    })
+    var newState = {};
+    if(name==='myTimePicker') {
+      newState.testTimePicker = value;
+    }
+    this.setState(newState);
   }
 
 
@@ -54,6 +56,7 @@ class Test extends Component{
     return (
       <div className="input-group bootstrap-timepicker timepicker">
         <TimePicker id = {1234}
+                    name="myTimePicker"
                     hide={this.state.hide}
                     value={this.state.testTimePicker}
                     className='form-control'

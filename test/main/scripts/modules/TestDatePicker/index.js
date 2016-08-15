@@ -13,16 +13,16 @@ class Test extends Component{
     }
   }
 
-  _onTestDatePickerChange(value) {
-    console.log("_onTestDatePickerChange:", value)
-    this.setState({
-      testDatePickerValue:value
-    })
+  _onTestDatePickerChange(value, name) {
+    console.log("_onTestDatePickerChange:", value);
+    var newState = {};
+    if(name ==='myDate') newState.testDatePickerValue = value;
+    this.setState(newState);
   }
 
   componentWillMount() {
     this.datePickerOptions= {
-      rtl: App.isRTL(),
+      //rtl: App.isRTL(),
       orientation: "left",
       format:'dd/mm/yyyy',
       startDate: '-3d', //curent date
@@ -47,6 +47,7 @@ class Test extends Component{
     return (
       <DatePicker datePickerOptions={this.datePickerOptions}
                   id = {1234}
+                  name = {'myDate'}
                   hide={this.state.hide}
                   onChangeValue={this._onTestDatePickerChange.bind(this)}
                   className='form-control'
