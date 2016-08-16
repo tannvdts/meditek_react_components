@@ -3,7 +3,7 @@
  */
 import React, {Component, PropTypes} from 'react'
 import mixins from '../mixins'
-class InputFileImagePreview extends Component {
+class FileImagePreview extends Component {
 
   constructor(props) {
     super(props)
@@ -31,7 +31,7 @@ class InputFileImagePreview extends Component {
 
   }
 }
-InputFileImagePreview.propTypes = _.assignIn({}, {
+FileImagePreview.propTypes = _.assignIn({}, {
   id: PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.number,
@@ -42,8 +42,8 @@ InputFileImagePreview.propTypes = _.assignIn({}, {
   hide: PropTypes.bool,
   file: PropTypes.object
 })
-InputFileImagePreview.defaultProps = {
+FileImagePreview.defaultProps = {
   hide: false,
   style: {}
 }
-export default InputFileImagePreview
+export default FileImagePreview
