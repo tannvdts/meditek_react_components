@@ -279,10 +279,8 @@ DefaultProps:
 > -**style**: {},
 >
 > -**datePickerOptions**: {
-> 	    //rtl: App.isRTL(),
 > 	    orientation: "left",
 > 	    format:'dd/mm/yyyy',
-> 	    startDate: '-3d',
 > 	    autoclose: !0,
 > 	    clearBtn: true,   }
 
@@ -301,7 +299,7 @@ Using:
       }
 
       _onTestDatePickerChange(value, name) {
-        console.log("_onTestDatePickerChange:", value);
+        console.log("_onTestDatePickerChange:", value, name);
         var newState = {};
         if(name ==='myDate') newState.testDatePickerValue = value;
         this.setState(newState);
@@ -309,10 +307,8 @@ Using:
 
       componentWillMount() {
         this.datePickerOptions= {
-          //rtl: App.isRTL(),
           orientation: "left",
           format:'dd/mm/yyyy',
-          startDate: '-3d', //curent date
           autoclose: !0,
           clearBtn: true
         }
@@ -320,7 +316,7 @@ Using:
 
       componentDidMount() {
         var self = this;
-        var selectedDate = new Date();
+        var selectedDate = moment().format("DD/MM/YYYY");
         // Mo phong bat dong bo
         //----------------------------------
         setTimeout(function(selectedDate){
@@ -333,12 +329,12 @@ Using:
       render() {
         return (
           <DatePicker datePickerOptions={this.datePickerOptions}
-                      id = {1234}
-                      name = {'myDate'}
-                      hide={this.state.hide}
-                      onChangeValue={this._onTestDatePickerChange.bind(this)}
-                      className='form-control'
-                      value = {this.state.testDatePickerValue}
+                       id = {1234}
+                       name = {'myDate'}
+                       hide={this.state.hide}
+                       onChangeValue={this._onTestDatePickerChange.bind(this)}
+                       className='form-control'
+                       value = {this.state.testDatePickerValue}
           />
         )
       }
@@ -350,7 +346,7 @@ Using:
 
 
 
-**2.4 File**
+**2.4 FileComp**
 ------------
 
 > Xử dụng để chọn upload file và preview file upload
@@ -359,7 +355,7 @@ Using:
 >
 > InputFileImagePreview: preview file upload
 
-**2.4.1 InputFile**
+**2.4.1 FileComp.InputFile**
 
 Chọn file để upload
 
@@ -396,7 +392,7 @@ DefaultProps:
 >
 > -**showInfo**: true
 
-**2.4.2 InputFileImagePreview**
+**2.4.2 FileComp.FileImagePreview**
 
 Sử dụng để preview file upload
 
@@ -450,9 +446,9 @@ Using:
       render() {
         return (
           <div>
-            <InputFile showInfo={true} multiple={true} name={'TestFile'} files={this.state.files} onChangeValue={this._onTestFileInputChange.bind(this)}/>
+            <FileComp.InputFile showInfo={true} multiple={true} name={'TestFile'} files={this.state.files} onChangeValue={this._onTestFileInputChange.bind(this)}/>
             {this.state.files.map((file, index) => {
-              return <InputFileImagePreview file={file} style = {{width: "100px"}} key={index}></InputFileImagePreview>
+              return <FileComp.FileImagePreview file={file} style = {{width: "100px"}} key={index}></FileComp.FileImagePreview>
             })}
           </div>
         )
@@ -518,7 +514,7 @@ Using:
 ----------
 
 
-**2.6 Modal**
+**2.6 ModalComp**
 -------------
 
 > Dựa trên boostrap 3 Modal
@@ -531,13 +527,13 @@ Using:
 >
 > -ModalFooter Component
 
-    <Modal>
-    	<ModalHeader></ModalHeader>
-    	<ModalBody></ModalBody>
-    	<ModalFooter></ModalFooter>
-    </Modal>
+    <ModalComp.Modal>
+    	<ModalComp.ModalHeader></ModalComp.ModalHeader>
+    	<ModalComp.ModalBody></ModalComp.ModalBody>
+    	<ModalComp.ModalFooter></ModalComp.ModalFooter>
+    </ModalComp.Modal>
 
-**2.6.1 Modal**
+**2.6.1 ModalComp.Modal**
 
 Props:
 
@@ -581,7 +577,7 @@ Functions:
 >
 > +"options": tương ứng: domElement.modal(options)
 
-**2.6.2 ModalHeader**
+**2.6.2 ModalComp.ModalHeader**
 
 > Chứa phần header của modal
 
@@ -601,7 +597,7 @@ DefaultProps:
 >
 > -**hide**: false
 
-**2.6.3 ModalBody**
+**2.6.3 ModalComp.ModalBody**
 
 Chứ nội dung chính của modal
 
@@ -618,7 +614,7 @@ DefaultProps:
 > -**style**: {},
 > -**hide**: false
 
-2.6.4 ModalFooter:
+**2.6.4 ModalComp.ModalFooter:**
 Chứ phần footer của modal
 
 Props:
@@ -661,19 +657,16 @@ Using:
       render() {
         return (
           <div>
-            <Modal
-				id="ahihi"
-				size="modal-lg"
-				onShown={this._onShown.bind(this)}>
-              <ModalHeader title="Test Modal ne"></ModalHeader>
-              <ModalBody>
+            <ModalComp.Modal ref="myModal" id="ahihi" size="modal-lg" onShown={this._onShown.bind(this)}>
+              <ModalComp.ModalHeader title="Test Modal ne"></ModalComp.ModalHeader>
+              <ModalComp.ModalBody>
                 <p>tan test ne</p>
 
-              </ModalBody>
-              <ModalFooter closeBtnLabel="Tat di ne">
+              </ModalComp.ModalBody>
+              <ModalComp.ModalFooter closeBtnLabel="Tat di ne">
 
-              </ModalFooter>
-            </Modal>
+              </ModalComp.ModalFooter>
+            </ModalComp.Modal>
             <button onClick={this._showModal.bind(this)}>show modal</button>
           </div>
         )
@@ -757,7 +750,7 @@ Using:
 > - RadioGroup Component
 > - Radio Component
 
-**2.8.1 RadioGroup Component**
+**2.8.1 RadioGroup.Group Component**
 
 Props:
 
@@ -770,7 +763,7 @@ DefaultProps:
 > -**readOnly**: false,
 > -**style**: {}
 
-**2.8.2 Radio Component**
+**2.8.2 RadioGroup.Radio Component**
 
 Props:
 - **Kế thừa mixins.inputPropTypes**
@@ -789,7 +782,7 @@ Using:
 > name
 
 
-    class Test extends Component{
+     class Test extends Component{
       constructor(props) {
         super(props);
         this.state = {
@@ -812,20 +805,20 @@ Using:
 
       render() {
         return (
-          <RadioGroup name={"fruit"}
+          <RadioGroup.Group name={"fruit"}
                       value={this.state.testRadioSelectedValue}
                       onChangeValue={this._onTestRadioChange.bind(this)}
           >
             <label className="checkbox-inline">
-              <Radio value="apple" />Apple
+              <RadioGroup.Radio value="apple" />Apple
             </label>
             <label className="checkbox-inline">
-              <Radio value="orange" />Orange
+              <RadioGroup.Radio value="orange" />Orange
             </label>
             <label className="checkbox-inline">
-              <Radio value="watermelon" />Watermelon
+              <RadioGroup.Radio value="watermelon" />Watermelon
             </label>
-          </RadioGroup>
+          </RadioGroup.Group>
 
         )
       }
