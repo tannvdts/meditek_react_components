@@ -3,7 +3,7 @@
  */
 import {render} from 'react-dom'
 import React, {Component, PropTypes} from 'react'
-import {CheckboxGroup, Checkbox} from '../../../../src/components/checkboxGroup'
+import {CheckboxGroup} from '../../../../src/index'
 class Test extends Component{
   constructor(props) {
     super(props);
@@ -27,20 +27,20 @@ class Test extends Component{
 
   render() {
     return (
-      <CheckboxGroup name={"fruit"}
+      <CheckboxGroup.Group name={"fruit"}
                   value={this.state.testCheckboxGroupSelectedValues}
                   onChangeValue={this._onTestCheckboxGroupChange.bind(this)}
       >
         <label className="checkbox-inline">
-          <Checkbox value="apple" />Apple
+          <CheckboxGroup.Checkbox value="apple" />Apple
         </label>
         <label className="checkbox-inline">
-          <Checkbox value="orange" />Orange
+          <CheckboxGroup.Checkbox value="orange" />Orange
         </label>
         <label className="checkbox-inline">
-          <Checkbox value="watermelon" />Watermelon
+          <CheckboxGroup.Checkbox value="watermelon" />Watermelon
         </label>
-      </CheckboxGroup>
+      </CheckboxGroup.Group>
 
     )
   }

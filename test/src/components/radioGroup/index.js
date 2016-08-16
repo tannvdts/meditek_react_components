@@ -3,5 +3,8 @@
  */
 //https://www.npmjs.com/package/react-radio-group
 //https://github.com/chenglou/react-radio-group
-export {default as RadioGroup} from './RadioGroup'
-export {default as Radio} from './Radio'
+
+import Group from './RadioGroup'
+import Radio from "./Radio"
+
+export {Group, Radio}

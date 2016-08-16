@@ -3,7 +3,7 @@
  */
 import {render} from 'react-dom'
 import React, {Component, PropTypes} from 'react'
-import {Modal, ModalHeader, ModalBody, ModalFooter} from '../../../../src/components/modal'
+import {ModalComp} from '../../../../src/index'
 class Test extends Component{
   constructor(props) {
     super(props);
@@ -25,16 +25,16 @@ class Test extends Component{
   render() {
     return (
       <div>
-        <Modal ref="myModal" id="ahihi" size="modal-lg" onShown={this._onShown.bind(this)}>
-          <ModalHeader title="Test Modal ne"></ModalHeader>
-          <ModalBody>
+        <ModalComp.Modal ref="myModal" id="ahihi" size="modal-lg" onShown={this._onShown.bind(this)}>
+          <ModalComp.ModalHeader title="Test Modal ne"></ModalComp.ModalHeader>
+          <ModalComp.ModalBody>
             <p>tan test ne</p>
 
-          </ModalBody>
-          <ModalFooter closeBtnLabel="Tat di ne">
+          </ModalComp.ModalBody>
+          <ModalComp.ModalFooter closeBtnLabel="Tat di ne">
 
-          </ModalFooter>
-        </Modal>
+          </ModalComp.ModalFooter>
+        </ModalComp.Modal>
         <button onClick={this._showModal.bind(this)}>show modal</button>
       </div>
     )

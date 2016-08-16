@@ -3,7 +3,7 @@
  */
 import {render} from 'react-dom'
 import React, {Component, PropTypes} from 'react'
-import Select from '../../../../src/components/select'
+import {Select} from '../../../../src/index'
 class Test extends Component{
   constructor(props) {
     super(props);

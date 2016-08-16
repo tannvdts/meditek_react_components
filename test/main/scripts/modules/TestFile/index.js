@@ -3,7 +3,7 @@
  */
 import {render} from 'react-dom'
 import React, {Component, PropTypes} from 'react'
-import {InputFile, InputFileImagePreview} from '../../../../src/components/file'
+import {FileComp} from '../../../../src/index'
 class Test extends Component{
   constructor(props) {
     super(props);
@@ -28,9 +28,9 @@ class Test extends Component{
   render() {
     return (
       <div>
-        <InputFile showInfo={true} multiple={true} name={'TestFile'} files={this.state.files} onChangeValue={this._onTestFileInputChange.bind(this)}/>
+        <FileComp.InputFile showInfo={true} multiple={true} name={'TestFile'} files={this.state.files} onChangeValue={this._onTestFileInputChange.bind(this)}/>
         {this.state.files.map((file, index) => {
-          return <InputFileImagePreview file={file} style = {{width: "100px"}} key={index}></InputFileImagePreview>
+          return <FileComp.FileImagePreview file={file} style = {{width: "100px"}} key={index}></FileComp.FileImagePreview>
         })}
       </div>
     )

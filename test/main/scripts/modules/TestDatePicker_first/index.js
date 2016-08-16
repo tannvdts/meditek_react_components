@@ -22,8 +22,10 @@ class Test extends Component{
 
   componentWillMount() {
     this.datePickerOptions= {
+      //rtl: App.isRTL(),
       orientation: "left",
       format:'dd/mm/yyyy',
+      startDate: '-3d', //curent date
       autoclose: !0,
       clearBtn: true
     }
@@ -31,7 +33,7 @@ class Test extends Component{
 
   componentDidMount() {
     var self = this;
-    var selectedDate = moment().format("DD/MM/YYYY");
+    var selectedDate = new Date();
     // Mo phong bat dong bo
     //----------------------------------
     setTimeout(function(selectedDate){
@@ -44,12 +46,12 @@ class Test extends Component{
   render() {
     return (
       <DatePicker datePickerOptions={this.datePickerOptions}
-                   id = {1234}
-                   name = {'myDate'}
-                   hide={this.state.hide}
-                   onChangeValue={this._onTestDatePickerChange.bind(this)}
-                   className='form-control'
-                   value = {this.state.testDatePickerValue}
+                  id = {1234}
+                  name = {'myDate'}
+                  hide={this.state.hide}
+                  onChangeValue={this._onTestDatePickerChange.bind(this)}
+                  className='form-control'
+                  value = {this.state.testDatePickerValue}
       />
     )
   }
