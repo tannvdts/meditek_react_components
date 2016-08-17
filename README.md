@@ -1,4 +1,4 @@
-
+## Xem demo: https://meditek-react-components.herokuapp.com/ ##
 
 **1. Mixins**
 -------------
@@ -24,7 +24,7 @@
 	    ]),
 	  },
 
-Ví dụ cách sử dụng:
+**Ví dụ cách sử dụng:**
 
 
     Select.propTypes = _.assignIn({}, mixins.inputPropTypes, {
@@ -63,24 +63,7 @@ Ví dụ cách sử dụng:
 -----------------------------------------------------
 
 
-
-
- | STT | Component Name | Thư viện liên quan                                                                                   |
-|-----|----------------|------------------------------------------------------------------------------------------------------|
-| 1   | Checkbox       |                                                                                                      |
-| 2   | CheckboxGroup  | https://github.com/ziad-saab/react-checkbox-group https://www.npmjs.com/package/react-checkbox-group |
-| 3   | DatePicker     | https://bootstrap-datepicker.readthedocs.io/en/latest/                                               |
-| 4   | File           |                                                                                                      |
-| 5   | InputText      |                                                                                                      |
-| 6   | Modal          | Bootstrap 3 Modal                                                                                    |
-| 7   | Pagination     | https://www.npmjs.com/package/react-js-pagination                                                                               |
-| 8   | RadioGroup     | https://www.npmjs.com/package/react-radio-group https://github.com/chenglou/react-radio-group        |
-| 9   | Select         |                                                                                                      |
-| 10  | Textarea       |                                                                                                      |
-| 11  | TimePicker     | https://jdewit.github.io/bootstrap-timepicker/ https://www.npmjs.com/package/bootstrap-timepicker    |
-
-
-
+![enter image description here](https://s4.postimg.org/b1fiauolp/meditek_react_components_listreferal.png)
 
 
 ----------
@@ -615,6 +598,7 @@ DefaultProps:
 > -**hide**: false
 
 **2.6.4 ModalComp.ModalFooter:**
+
 Chứ phần footer của modal
 
 Props:
