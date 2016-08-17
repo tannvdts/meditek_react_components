@@ -604,18 +604,27 @@ Chứ phần footer của modal
 Props:
 
 > -**className**: PropTypes.string,
+>
 > -**style**: PropTypes.object,
+>
 > -**hide**: PropTypes.bool,
+>
 > -**haveCloseBtn**: PropTypes.bool, //Có button close modal hay không, mặc định là true
+>
 > -**closeBtnClassName**: PropTypes.string, //Style của button close
+>
 > -**closeBtnLabel**: PropTypes.string //Lable của button close
 
 DefaultProps:
 
 > -**style**: {},
+
 > -**hide**: false,
+
 > -**haveCloseBtn**: true,
+
 > -**closeBtnClassName**: 'btn btn-default',
+
 > -**closeBtnLabel**: 'Close'
 
 Using:
@@ -669,22 +678,35 @@ Dựa vào bootstrap 3 Pagination,
 Props:
 
 > -**Kế thừa các thuộc tính của : https://www.npmjs.com/package/react-js-pagination#params**
+
 > -**id**: PropTypes.oneOfType([
+
 >     React.PropTypes.string,
+
 >     React.PropTypes.number,   ]),
+
 > -**style**: PropTypes.object,
+
 > -**className**: PropTypes.string,
+
 > -**onChangeValue**: PropTypes.func, //Sự kiện khi click vào 1 trang
+
 > -**name**: PropTypes.string,
+
 > -**disabled**: PropTypes.bool,
+
 > -**hide**: PropTypes.bool,
+
 > -**ariaLabel**: PropTypes.string
 
 Default Props:
 
 > -**hide**: false,
+
 > -**disabled**: false,
+
 > -**style**: {},
+
 > -**ariaLabel**: 'Page navigation'
 
 Using:
@@ -743,8 +765,11 @@ Props:
 DefaultProps:
 
 > -**hide**: false,
+
 > -**disabled**: false,
+
 > -**readOnly**: false,
+
 > -**style**: {}
 
 **2.8.2 RadioGroup.Radio Component**
@@ -755,8 +780,11 @@ Props:
 DefaultProps:
 
 -**hide**: false,
+
 -**disabled**: false,
+
 -**readOnly**: false,
+
 -**style**: {}
 
 Using:
@@ -816,21 +844,29 @@ Using:
 --------------
 
 > **Nếu multiple = true thì select sẽ trả về array**
+
 > **Nếu multiple = false thì select chỉ trả về 1 gía trị duy nhất(string/number)**
 
 Props:
 
 > -**multiple**: PropTypes.bool, //Có cho select nhiều item hay không
+
 > -**options**: PropTypes.array,
+
 > -**defaultValue**: PropTypes.oneOfType([   React.PropTypes.string,   React.PropTypes.number,   React.PropTypes.array ]),
+
 > -**value**: PropTypes.oneOfType([   React.PropTypes.string,   React.PropTypes.number,   React.PropTypes.array ]),
 
 DefaultProps:
 
 > -**multiple**: false,
+
 > -**hide**: false,
+
 > -**disabled**: false,
+
 > -**readOnly**: false,
+
 > -**style**: {}
 
 Using:
@@ -889,13 +925,17 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 Props:
 
 > -**Kế thừa mixins.inputPropsTypes**
+
 > -**rows**: PropTypes.number
 
 Default Props:
 
 > -**hide**: false,
+
 > -**disabled**: false,
+
 > -**readOnly**: false,
+
 > -**style**: {}
 
 Using:
@@ -970,9 +1010,13 @@ Default Props:
 > -**timepickerOptions**: {
 >
 > 	  template: 'dropdown',
+
 > 	   	  minuteStep: 15,
+
 > 	   	  secondStep: 15,
+
 > 	   	  defaultTime: 'current',
+
 > 	   	  showMeridian: false, //hien AM/PM hay khong }
 
 Using:
