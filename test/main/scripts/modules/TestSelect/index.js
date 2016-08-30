@@ -28,10 +28,14 @@ class Test extends Component{
 
   render() {
     var options = [
-      {name: 'item 1', value: 1},
-      {name: 'item 2', value: 2},
-      {name: 'item 3', value: 3},
-      {name: 'item 4', value: 4},
+      {type:'optgroup', name: 'group test', items:[
+        {type:'option', name: 'item test 1', value: 11},
+        {type:'option', name: 'item test 2', value: 22},
+      ]},
+      {type:'option', name: 'item 1', value: 1},
+      {type:'option', name: 'item 2', value: 2},
+      {type:'option', name: 'item 3', value: 3},
+      {type:'option', name: 'item 4', value: 4},
     ]
     return (
       <Select id = {1234}

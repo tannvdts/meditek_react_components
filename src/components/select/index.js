@@ -38,7 +38,21 @@ class Select extends Component {
     }
     let optionElements = [];
     optionElements = options.map((item, index) => {
-      return <option key={index} value={item.value}>{item.name}</option>
+      if(item.type == "optgroup") {
+        var group = (
+          <optgroup key={index} label={item.name}>
+            {item.items.map((subitem, subindex) => {
+              return <option key={index+"."+subindex} value={subitem.value}>{subitem.name}</option>
+            })}
+          </optgroup>
+        )
+
+        return group;
+      }
+      else {
+        return <option key={index} value={item.value}>{item.name}</option>
+      }
+
     })
     return (
         <select ref="input"
