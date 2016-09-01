@@ -524,6 +524,8 @@ Props:
 >
 > -**style**: PropTypes.object,
 >
+> -**dialogContainerStyle**: PropTypes.object, //custom dialog size...
+>
 > -**tabIndex**: PropTypes.oneOfType([   React.PropTypes.string,   React.PropTypes.number, ]),
 >
 > -**size**: PropTypes.string, //null, modal-lg, modal-sm,
@@ -541,6 +543,7 @@ Props:
 DefaultProps:
 
 > -**style**: {},
+> -**dialogContainerStyle**:{},
 >
 > -**tabIndex**: -1,
 >
@@ -650,7 +653,7 @@ Using:
       render() {
         return (
           <div>
-            <ModalComp.Modal ref="myModal" id="ahihi" size="modal-lg" onShown={this._onShown.bind(this)}>
+            <ModalComp.Modal ref="myModal" id="ahihi" size="modal-lg" dialogContainerStyle={width:"80%"} onShown={this._onShown.bind(this)}>
               <ModalComp.ModalHeader title="Test Modal ne"></ModalComp.ModalHeader>
               <ModalComp.ModalBody>
                 <p>tan test ne</p>
