@@ -64,6 +64,7 @@ class Modal extends Component {
     if (this.props.hide == true) {
       styleMix.display = 'none'
     }
+
     return  <div
               ref="modal"
               {...other}
@@ -73,7 +74,7 @@ class Modal extends Component {
               role="dialog"
               aria-labelledby="meditekModal"
              >
-              <div className={"modal-dialog "+ (size?size:'')} role="document">
+              <div className={"modal-dialog "+ (size?size:'')} role="document" style={this.props.dialogContainerStyle}>
                 <div className="modal-content">
                   {this.props.children}
                 </div>
@@ -84,6 +85,7 @@ class Modal extends Component {
 Modal.propTypes = _.assignIn({}, {
   className: PropTypes.string,
   style: PropTypes.object,
+  dialogContainerStyle: PropTypes.object,
   tabIndex: PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.number,
@@ -97,6 +99,7 @@ Modal.propTypes = _.assignIn({}, {
 })
 Modal.defaultProps = {
   style: {},
+  dialogContainerStyle: {},
   tabIndex: -1,
   size: null
 }

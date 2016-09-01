@@ -25,7 +25,7 @@ class Test extends Component{
   render() {
     return (
       <div>
-        <ModalComp.Modal ref="myModal" id="ahihi" size="modal-lg" onShown={this._onShown.bind(this)}>
+        <ModalComp.Modal ref="myModal" id="ahihi" size="modal-lg" onShown={this._onShown.bind(this)} dialogContainerStyle ={{width:"100%"}}>
           <ModalComp.ModalHeader title="Test Modal ne"></ModalComp.ModalHeader>
           <ModalComp.ModalBody>
             <p>tan test ne</p>
