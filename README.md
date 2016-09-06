@@ -97,6 +97,11 @@ DefaultProps:
 >
 > -**falseValue**: false
 
+Function:
+
+
+   >-**getValue()** // using: this.refs['refname'].getValue()
+
 Using:
 
 > *Nếu trueValue không xác định thì trueValue mặc định là true,
@@ -184,6 +189,13 @@ DefaultProps:
 >
 > -**style**: {}
 
+
+Function:
+
+
+   >-**getValue()** // using: this.refs['refname'].getValue()
+
+
 Using:
 
 > Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
@@ -266,6 +278,12 @@ DefaultProps:
 > 	    format:'dd/mm/yyyy',
 > 	    autoclose: !0,
 > 	    clearBtn: true,   }
+
+
+Function:
+
+
+   >-**getValue()** // using: this.refs['refname'].getValue()
 
 Using:
 
@@ -375,6 +393,14 @@ DefaultProps:
 >
 > -**showInfo**: true
 
+
+Function:
+
+
+   >-**getFiles()** // using: this.refs['refname'].getFiles()
+
+
+
 **2.4.2 FileComp.FileImagePreview**
 
 Sử dụng để preview file upload
@@ -458,6 +484,13 @@ DefaultProps:
 > -**readOnly**: false,
 >
 > -**style**: {}
+
+
+Function:
+
+
+   >-**getValue()** // using: this.refs['refname'].getValue()
+
 
 Using:
 
@@ -712,6 +745,12 @@ Default Props:
 
 > -**ariaLabel**: 'Page navigation'
 
+Function:
+
+
+   >-**getActivePage()** // using: this.refs['refname'].getActivePage()
+
+
 Using:
 
     class Test extends Component{
@@ -774,6 +813,13 @@ DefaultProps:
 > -**readOnly**: false,
 
 > -**style**: {}
+
+
+Function:
+
+
+   >-**getValue()** // using: this.refs['refname'].getValue()
+
 
 **2.8.2 RadioGroup.Radio Component**
 
@@ -872,6 +918,13 @@ DefaultProps:
 
 > -**style**: {}
 
+
+Function:
+
+
+   >-**getValue()** // using: this.refs['refname'].getValue()
+
+
 Using:
 
 Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
@@ -944,6 +997,13 @@ Default Props:
 > -**readOnly**: false,
 
 > -**style**: {}
+
+
+Function:
+
+
+   >-**getValue()** // using: this.refs['refname'].getValue()
+
 
 Using:
 
@@ -1025,6 +1085,13 @@ Default Props:
 > 	   	  defaultTime: 'current',
 
 > 	   	  showMeridian: false, //hien AM/PM hay khong }
+
+
+Function:
+
+
+   >-**getValue()** // using: this.refs['refname'].getValue()
+
 
 Using:
 
