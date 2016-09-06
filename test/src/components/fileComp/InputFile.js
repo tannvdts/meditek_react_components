@@ -36,6 +36,10 @@ class InputFile extends Component {
     this.props.onChangeValue(_.cloneDeep(this.filesHandling), this.props.name);
     this.refs['inputFile'].value ="";
   }
+  
+  getFiles() {
+    return this.props.files;
+  }
 
   _onClick() {
     $(this.refs['inputFile']).click();

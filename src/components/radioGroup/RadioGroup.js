@@ -22,6 +22,10 @@ class RadioGroupCustom extends Component {
     }
   }
 
+  getValue() {
+    return this.props.value;
+  }
+
   render(){
     var { style, value, onChangeValue, ...other } = this.props;
     var styleMix = _.assignIn({}, style);

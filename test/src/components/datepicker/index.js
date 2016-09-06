@@ -32,6 +32,10 @@ class DatePicker2 extends Component {
     }
   }
 
+  getValue() {
+    return this.props.value;
+  }
+
   render(){
     const {style, onChangeValue, value, ...other} = this.props;
     //Xu ly style

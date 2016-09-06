@@ -24,7 +24,9 @@ class Test extends Component{
     var self = this;
   }
 
+
   render() {
+
     return (
       <Checkbox
         id = {1234}

@@ -18,6 +18,10 @@ class Textarea extends Component {
     }
   }
 
+  getValue() {
+    return this.props.value;
+  }
+
   render(){
     const  {style, onChangeValue, ...other } = this.props;
     let styleMix = _.assignIn({}, style);

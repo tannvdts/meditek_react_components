@@ -17,6 +17,10 @@ class Checkbox extends Component {
       this.props.onChangeValue(e.target.checked?trueValueCal:falseValueCal, this.props.name);
     }
   }
+  
+  getValue() {
+    return this.props.value;
+  }
 
   render() {
     const {style, value, onChangeValue, trueValue, falseValue, ...other} = this.props;

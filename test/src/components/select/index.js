@@ -27,7 +27,10 @@ class Select extends Component {
       console.log("Select Component: _onChange:", e.target.value)
 
     }
+  }
 
+  getValue() {
+    return this.props.value;
   }
 
   render() {

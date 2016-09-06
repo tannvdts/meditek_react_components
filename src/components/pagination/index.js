@@ -16,7 +16,10 @@ class PaginationCustom extends Component {
     if(this.props.onChangeValue) {
       this.props.onChangeValue(pageNumber);
     }
+  }
 
+  getActivePage() {
+    return this.props.activePage;
   }
 
   render(){

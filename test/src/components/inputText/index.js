@@ -14,6 +14,10 @@ class InputText extends Component {
       this.props.onChangeValue(e.target.value, this.props.name);
 		}
 	}
+  
+  getValue() {
+    return this.props.value;
+  }
 
 	render(){
     const  {style, onChangeValue, ...other } = this.props;
