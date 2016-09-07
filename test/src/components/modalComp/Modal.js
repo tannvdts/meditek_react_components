@@ -59,7 +59,7 @@ class Modal extends Component {
   }
 
   render(){
-    const  {style, className, tabIndex, size, ...other } = this.props;
+    const  {style, className, tabIndex, size, dialogContainerStyle, onShown, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
     if (this.props.hide == true) {
       styleMix.display = 'none'
@@ -74,7 +74,7 @@ class Modal extends Component {
               role="dialog"
               aria-labelledby="meditekModal"
              >
-              <div className={"modal-dialog "+ (size?size:'')} role="document" style={this.props.dialogContainerStyle}>
+              <div className={"modal-dialog "+ (size?size:'')} role="document" style={dialogContainerStyle}>
                 <div className="modal-content">
                   {this.props.children}
                 </div>

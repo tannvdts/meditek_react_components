@@ -14,14 +14,14 @@ class ModalFooter extends Component {
   }
 
   render(){
-    const  {style, ...other } = this.props;
+    const  {style, haveCloseBtn, closeBtnLabel, hide, closeBtnClassName,  ...other } = this.props;
     let styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
 
     let closeBtnStyle = {};
-    if(this.props.haveCloseBtn === false) {
+    if(haveCloseBtn === false) {
       closeBtnStyle.display = 'none'
     }
     return  <div
@@ -29,7 +29,7 @@ class ModalFooter extends Component {
               className={"modal-footer " + (this.props.className?this.props.className:'')}
               style={styleMix}
             >
-              <button type="button" style={closeBtnStyle} className={this.props.closeBtnClassName} data-dismiss="modal">{this.props.closeBtnLabel}</button>
+              <button type="button" style={closeBtnStyle} className={closeBtnClassName} data-dismiss="modal">{closeBtnLabel}</button>
               {this.props.children}
             </div>
   }

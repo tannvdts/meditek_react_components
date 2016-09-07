@@ -14,9 +14,9 @@ class ModalBody extends Component {
   }
 
   render(){
-    const  {style, ...other } = this.props;
+    const  {style, hide, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
     return  <div

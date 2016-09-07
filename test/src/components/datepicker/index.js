@@ -37,10 +37,10 @@ class DatePicker2 extends Component {
   }
 
   render(){
-    const {style, onChangeValue, value, ...other} = this.props;
+    const {style, onChangeValue, value, hide, datePickerOptions, ...other} = this.props;
     //Xu ly style
     let styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
     return  <input type="text"
