@@ -1,18 +1,18 @@
 {
   "name": "meditek_react_components",
-  "version": "0.3.19",
+  "version": "0.3.20",
   "description": "Meditek React Components",
   "keywords": [
     "meditek_react_components, react components, react component, components, components, form component, react form component"
   ],
-  "homepage": "https://github.com/redimed/meditek_react_components",
+  "homepage": "https://github.com/tannvdts/meditek_react_components",
   "author": "tannv.dts@gmail.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/redimed/meditek_react_components.git"
+    "url": "https://github.com/tannvdts/meditek_react_components.git"
   },
   "bugs": {
-    "url": "https://github.com/redimed/meditek_react_components/issues"
+    "url": "https://github.com/tannvdts/meditek_react_components/issues"
   },
   "files": [
     "lib",
