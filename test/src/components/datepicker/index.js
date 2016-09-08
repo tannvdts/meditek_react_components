@@ -16,8 +16,12 @@ class DatePicker2 extends Component {
       })
       .on("hide", function(e) {
         console.log("DatePicker Component: Hide:", e);
-        var choseDate = moment(e.date)
-          .format(self.props.datePickerOptions.format.toUpperCase());
+        var choseDate = null;
+        if(e.date) {
+          choseDate = moment(e.date)
+            .format(self.props.datePickerOptions.format.toUpperCase());
+        }
+        
         console.log(">>", choseDate);
         if(self.props.onChangeValue) {
           self.props.onChangeValue(choseDate, self.props.name);
@@ -74,6 +78,6 @@ DatePicker2.defaultProps = {
     autoclose: !0,
     clearBtn: true,
   },
-  value: moment().format("DD/MM/YYYY")
+  value: ''
 }
 export default DatePicker2
