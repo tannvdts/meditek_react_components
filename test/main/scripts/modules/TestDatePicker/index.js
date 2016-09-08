@@ -9,7 +9,7 @@ class Test extends Component{
     super(props);
     this.state = {
       hide: false,
-      testDatePickerValue: null,
+      testDatePickerValue: '',
     }
   }
 

@@ -17,9 +17,9 @@ class RadioCustom extends Component {
   
 
   render(){
-    var { style, onChangeValue, ...other } = this.props;
+    var { style, onChangeValue, hide, ...other } = this.props;
     var styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
     return  <Radio

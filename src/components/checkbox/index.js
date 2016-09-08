@@ -21,15 +21,19 @@ class Checkbox extends Component {
   getValue() {
     return this.props.value;
   }
+  
+  getRef() {
+    return this.refs['input']
+  }
 
   render() {
-    const {style, value, onChangeValue, trueValue, falseValue, ...other} = this.props;
+    const {style, value, onChangeValue, trueValue, falseValue, hide, ...other} = this.props;
     let trueValueCal = trueValue!==undefined?trueValue:true;
-    let isChecked =  this.props.value === trueValueCal?true:false;
+    let isChecked =  value === trueValueCal?true:false;
     console.log("checkbox component:value:", value, ':checked:',isChecked);
     //custom style
     let styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
     //------------------------------------

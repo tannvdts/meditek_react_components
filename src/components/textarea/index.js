@@ -23,9 +23,9 @@ class Textarea extends Component {
   }
 
   render(){
-    const  {style, onChangeValue, ...other } = this.props;
+    const  {style, onChangeValue, hide, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
 

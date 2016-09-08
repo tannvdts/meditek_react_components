@@ -34,9 +34,9 @@ class Select extends Component {
   }
 
   render() {
-    var { style, onChangeValue, options, ...other } = this.props;
+    var { style, onChangeValue, options, hide, ...other } = this.props;
     var styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
     let optionElements = [];

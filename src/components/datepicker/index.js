@@ -35,6 +35,10 @@ class DatePicker2 extends Component {
   getValue() {
     return this.props.value;
   }
+  
+  getRef() {
+    return this.refs['datepicker'];
+  }
 
   render(){
     const {style, onChangeValue, value, hide, datePickerOptions, ...other} = this.props;
@@ -69,6 +73,7 @@ DatePicker2.defaultProps = {
     format:'dd/mm/yyyy',
     autoclose: !0,
     clearBtn: true,
-  }
+  },
+  value: moment().format("DD/MM/YYYY")
 }
 export default DatePicker2

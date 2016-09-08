@@ -25,7 +25,7 @@ class PaginationCustom extends Component {
   render(){
     const  {id, style, className, onChangeValue, name, disabled, hide, ariaLabel, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
 
@@ -36,7 +36,6 @@ class PaginationCustom extends Component {
         className={className}
         name={name}
         disabled={disabled}
-        hide={hide}
         aria-label={ariaLabel}
       >
         <Pagination

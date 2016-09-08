@@ -59,13 +59,13 @@ class InputFile extends Component {
   }
 
   render(){
-    const  {style, onChangeValue, label, multiple, ...other } = this.props;
+    const  {style, onChangeValue, label, multiple, hide, showInfo, files, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
     let infoStyle = {};
-    if(this.props.showInfo !== true) {
+    if(showInfo !== true) {
       infoStyle.display = "none";
     }
     var tableFiles = [];

@@ -13,9 +13,9 @@ class FileImagePreview extends Component {
   }
 
   render(){
-    const  {style, file, ...other } = this.props;
+    const  {style, file, hide, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
     let objectUrl = null;

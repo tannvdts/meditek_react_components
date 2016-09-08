@@ -1,4 +1,6 @@
-## Xem demo: https://meditek-react-components.herokuapp.com/ ##
+## The common React components for you ##
+
+## View demo: https://meditek-react-components.herokuapp.com/ ##
 
 **1. Mixins**
 -------------
@@ -284,6 +286,7 @@ Function:
 
 
    >-**getValue()** // using: this.refs['refname'].getValue()
+   >-**getRef()** // using: this.refs['refname'].getRef()
 
 Using:
 

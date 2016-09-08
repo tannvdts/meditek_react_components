@@ -27,9 +27,9 @@ class RadioGroupCustom extends Component {
   }
 
   render(){
-    var { style, value, onChangeValue, ...other } = this.props;
+    var { style, value, onChangeValue, hide, ...other } = this.props;
     var styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
     return  <RadioGroup

@@ -48,6 +48,10 @@ class TimePicker extends Component {
     return this.props.value;
   }
 
+  getRef() {
+    return this.refs['input']
+  }
+
   render(){
     const  {style, onChangeValue, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
@@ -55,7 +59,7 @@ class TimePicker extends Component {
       styleMix.display = 'none'
     }
 
-    return <input ref="input"Usin
+    return <input ref="input"
                   type="text"
                   {...other}
                   style={styleMix}
