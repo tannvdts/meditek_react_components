@@ -39,6 +39,7 @@ class Test extends Component{
     ]
     return (
       <Select id = {1234}
+              readOnly={true}
               name = "mySelect"
               hide={this.state.hide}
               value={this.state.testSelect}

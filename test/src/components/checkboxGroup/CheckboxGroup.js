@@ -16,6 +16,7 @@ class CheckboxGroupCustom extends Component {
   }
 
   _onChange(values) {
+    if(this.props.readOnly) return;
     console.log("RadioGroup Component: _onChange:", values);
     if(typeof this.props.onChangeValue !== 'undefined') {
       this.props.onChangeValue(values, this.props.name);
@@ -35,6 +36,7 @@ class CheckboxGroupCustom extends Component {
     return  <CheckboxGroup
       {...other}
       style={styleMix}
+      value={value}
       onChange={this._onChange.bind(this)}
     >
       {this.props.children}

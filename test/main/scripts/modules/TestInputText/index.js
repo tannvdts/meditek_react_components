@@ -28,7 +28,7 @@ class Test extends Component{
 
   render() {
     return (
-      <InputText id = {1234} name={"myInput"} hide={this.state.hide} value={this.state.testInputValue} onChangeValue={this._onTestInputChange.bind(this)} className='form-control'/>
+      <InputText id = {1234} readOnly={true} name={"myInput"} hide={this.state.hide} value={this.state.testInputValue} onChangeValue={this._onTestInputChange.bind(this)} className='form-control'/>
     )
   }
 }

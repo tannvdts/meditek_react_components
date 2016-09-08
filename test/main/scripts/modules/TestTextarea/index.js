@@ -29,6 +29,7 @@ class Test extends Component{
   render() {
     return (
       <Textarea id = {1234}
+                readOnly={true}
                 name="myTextArea"
                 hide={this.state.hide}
                 value={this.state.testTextarea}

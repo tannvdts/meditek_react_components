@@ -10,6 +10,7 @@ class InputText extends Component {
 	}
 
 	_onChange(e) {
+    if(this.props.readOnly) return;
 		if(typeof this.props.onChangeValue !== 'undefined') {
       this.props.onChangeValue(e.target.value, this.props.name);
 		}
@@ -20,7 +21,7 @@ class InputText extends Component {
   }
 
 	render(){
-    const  {style, onChangeValue, hide, ...other } = this.props;
+    const  {style, onChangeValue, hide, readOnly, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
     if (hide == true) {
       styleMix.display = 'none'
@@ -28,6 +29,7 @@ class InputText extends Component {
 
     return <input type="text"
               {...other}
+              readOnly={readOnly}
                style={styleMix}
                ref="input"
                onChange={this._onChange.bind(this)}/>

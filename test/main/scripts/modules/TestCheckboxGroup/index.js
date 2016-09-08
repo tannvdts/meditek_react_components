@@ -28,17 +28,18 @@ class Test extends Component{
   render() {
     return (
       <CheckboxGroup.Group name={"fruit"}
+                           readOnly={true}
                   value={this.state.testCheckboxGroupSelectedValues}
                   onChangeValue={this._onTestCheckboxGroupChange.bind(this)}
       >
         <label className="checkbox-inline">
-          <CheckboxGroup.Checkbox value="apple" />Apple
+          <CheckboxGroup.Checkbox value="apple" readOnly={true}/>Apple
         </label>
         <label className="checkbox-inline">
-          <CheckboxGroup.Checkbox value="orange" />Orange
+          <CheckboxGroup.Checkbox value="orange" readOnly={true}/>Orange
         </label>
         <label className="checkbox-inline">
-          <CheckboxGroup.Checkbox value="watermelon" />Watermelon
+          <CheckboxGroup.Checkbox value="watermelon" readOnly={true}/>Watermelon
         </label>
       </CheckboxGroup.Group>
 

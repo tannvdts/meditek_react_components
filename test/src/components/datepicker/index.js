@@ -9,27 +9,31 @@ class DatePicker2 extends Component {
 
   componentDidMount() {
     var self = this;
-    $(this.refs.datepicker)
-      .datepicker(self.props.datePickerOptions)
-      .on("changeDate", function(e){
-        console.log("DatePicker Component: changeDate:", e);
-      })
-      .on("hide", function(e) {
-        console.log("DatePicker Component: Hide:", e);
-        var choseDate = null;
-        if(e.date) {
-          choseDate = moment(e.date)
-            .format(self.props.datePickerOptions.format.toUpperCase());
-        }
-        
-        console.log(">>", choseDate);
-        if(self.props.onChangeValue) {
-          self.props.onChangeValue(choseDate, self.props.name);
-        }
-      })
-  }
+    if(!this.props.readOnly) {
+      $(this.refs.datepicker)
+        .datepicker(self.props.datePickerOptions)
+        .on("changeDate", function(e){
+          console.log("DatePicker Component: changeDate:", e);
+        })
+        .on("hide", function(e) {
+          console.log("DatePicker Component: Hide:", e);
+          var choseDate = null;
+          if(e.date) {
+            choseDate = moment(e.date)
+              .format(self.props.datePickerOptions.format.toUpperCase());
+          }
+
+          console.log(">>", choseDate);
+          if(self.props.onChangeValue) {
+            self.props.onChangeValue(choseDate, self.props.name);
+          }
+        })
+    }
+    }
+
 
   _onChange(e) {
+    if(this.props.readOnly) return;
     console.log("DatePicker Component: _onChange:", e);
     if(this.props.onChangeValue) {
       this.props.onChangeValue(e.target.value, this.props.name);

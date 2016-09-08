@@ -13,6 +13,7 @@ class Textarea extends Component {
   }
 
   _onChange(e) {
+    if(this.props.readOnly) return;
     if(typeof this.props.onChangeValue !== 'undefined') {
       this.props.onChangeValue(e.target.value, this.props.name);
     }

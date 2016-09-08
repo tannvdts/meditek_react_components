@@ -14,31 +14,35 @@ class TimePicker extends Component {
   }
   componentDidMount(){
     var self = this;
-    $(this.refs['input']).timepicker(this.props.timepickerOptions)
-    .on('show.timepicker', function(e) {
-      console.log("on show.timepicker", e);
-      if(self.props.onShow)
-        self.props.onShow(e);
-    })
-    .on('hide.timepicker', function(e) {
-      console.log("on hide.timepicker", e);
-      if(self.props.onHide)
-        self.props.onHide(e);
-    })
-    .on('changeTime.timepicker', function(e) {
-      console.log("on changeTime.timepicker", e);
-      if (self.props.onChangeValue)
-      {
-        if(self.props.timepickerOptions.showMeridian === false) {
-          self.props.onChangeValue(e.time.hours+":"+config.pad(e.time.minutes,2)+":"+config.pad(e.time.seconds,2), self.props.name);
-        } else {
-          self.props.onChangeValue(e.time.hours+":"+config.pad(e.time.minutes,2)+":"+config.pad(e.time.seconds,2)+" "+e.time.meridian, self.props.name);
-        }
-      }
-    })
+    if(this.props.readOnly) {
+      $(this.refs['input']).timepicker(this.props.timepickerOptions)
+        .on('show.timepicker', function(e) {
+          console.log("on show.timepicker", e);
+          if(self.props.onShow)
+            self.props.onShow(e);
+        })
+        .on('hide.timepicker', function(e) {
+          console.log("on hide.timepicker", e);
+          if(self.props.onHide)
+            self.props.onHide(e);
+        })
+        .on('changeTime.timepicker', function(e) {
+          console.log("on changeTime.timepicker", e);
+          if (self.props.onChangeValue)
+          {
+            if(self.props.timepickerOptions.showMeridian === false) {
+              self.props.onChangeValue(e.time.hours+":"+config.pad(e.time.minutes,2)+":"+config.pad(e.time.seconds,2), self.props.name);
+            } else {
+              self.props.onChangeValue(e.time.hours+":"+config.pad(e.time.minutes,2)+":"+config.pad(e.time.seconds,2)+" "+e.time.meridian, self.props.name);
+            }
+          }
+        })
+    }
+
   }
 
   _onChange(e) {
+    if(this.props.readOnly) return;
     if(typeof this.props.onChangeValue !== 'undefined') {
       this.props.onChangeValue(e.target.value, this.props.name);
     }
@@ -53,9 +57,9 @@ class TimePicker extends Component {
   }
 
   render(){
-    const  {style, onChangeValue, ...other } = this.props;
+    const  {style, onChangeValue, timepickerOptions, onShow, onHide, hide, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
-    if (this.props.hide == true) {
+    if (hide == true) {
       styleMix.display = 'none'
     }
 
@@ -78,6 +82,7 @@ TimePicker.defaultProps = {
   disabled: false,
   readOnly: false,
   style: {},
+  value: '',
   timepickerOptions: {
     template: 'dropdown',
     minuteStep: 15,

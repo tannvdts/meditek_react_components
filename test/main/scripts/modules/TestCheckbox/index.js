@@ -35,6 +35,7 @@ class Test extends Component{
         value={this.state.testCheckboxABCValue}
         trueValue="YES"
         falseValue="NO"
+        readOnly={true}
         onChangeValue={this._onTestCheckboxChange.bind(this)}/>
     )
   }

@@ -11,6 +11,7 @@ class InputFile extends Component {
   }
 
   _onChange(e) {
+    if(this.props.readOnly) return;
     console.log("FileInput Component: _onChange", e.target.files);
     console.log("File on input tag:", $(this.refs['inputFile']).prop('files'));
     var choseFiles = e.target.files;
@@ -42,10 +43,12 @@ class InputFile extends Component {
   }
 
   _onClick() {
+    if(this.props.readOnly) return;
     $(this.refs['inputFile']).click();
   }
 
   _onRemoveChoseFile(name, e) {
+    if(this.props.readOnly) return;
     console.log("_onRemoveChoseFile", name, e);
     for (var i = 0; i < this.filesHandling.length; i++) {
       let file = this.filesHandling[i];
@@ -59,7 +62,7 @@ class InputFile extends Component {
   }
 
   render(){
-    const  {style, onChangeValue, label, multiple, hide, showInfo, files, ...other } = this.props;
+    const  {style, onChangeValue, label, multiple, hide, showInfo, files, readOnly, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
     if (hide == true) {
       styleMix.display = 'none'
@@ -86,6 +89,7 @@ class InputFile extends Component {
               <input type="button"
                       {...other}
                      style={styleMix}
+                     disabled={readOnly}
                      value={label}
                      onClick={this._onClick.bind(this)}
               />

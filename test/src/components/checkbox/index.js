@@ -11,6 +11,8 @@ class Checkbox extends Component {
   }
 
   _onChange(e){
+    if(this.props.readOnly)
+      return;
     if(this.props.onChangeValue) {
       var trueValueCal = this.props.trueValue!==undefined?this.props.trueValue:true;
       var falseValueCal =  this.props.falseValue!==undefined?this.props.falseValue:false;

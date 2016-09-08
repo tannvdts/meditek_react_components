@@ -28,17 +28,18 @@ class Test extends Component{
   render() {
     return (
       <RadioGroup.Group name={"fruit"}
+                        readOnly={true}
                   value={this.state.testRadioSelectedValue}
                   onChangeValue={this._onTestRadioChange.bind(this)}
       >
         <label className="checkbox-inline">
-          <RadioGroup.Radio value="apple" />Apple
+          <RadioGroup.Radio value="apple" readOnly={true}/>Apple
         </label>
         <label className="checkbox-inline">
-          <RadioGroup.Radio value="orange" />Orange
+          <RadioGroup.Radio value="orange" readOnly={true} />Orange
         </label>
         <label className="checkbox-inline">
-          <RadioGroup.Radio value="watermelon" />Watermelon
+          <RadioGroup.Radio value="watermelon" readOnly={true}/>Watermelon
         </label>
       </RadioGroup.Group>
 

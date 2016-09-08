@@ -9,7 +9,7 @@ class Test extends Component{
     super(props);
     this.state = {
       hide: false,
-      testTimePicker: null
+      testTimePicker: ''
     }
   }
 
@@ -56,6 +56,7 @@ class Test extends Component{
       <div className="input-group bootstrap-timepicker timepicker">
         <TimePicker id = {1234}
                     name="myTimePicker"
+                    readOnly={true}
                     hide={this.state.hide}
                     value={this.state.testTimePicker}
                     className='form-control'

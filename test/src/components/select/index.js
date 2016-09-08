@@ -10,6 +10,7 @@ class Select extends Component {
   }
 
   _onChange(e) {
+    if(this.props.readOnly) return;
     console.log(e.target.options);
     if(typeof this.props.onChangeValue === 'undefined') return;
     if(this.props.multiple === true) {
@@ -34,7 +35,7 @@ class Select extends Component {
   }
 
   render() {
-    var { style, onChangeValue, options, hide, ...other } = this.props;
+    var { style, onChangeValue, options, hide, readOnly, ...other } = this.props;
     var styleMix = _.assignIn({}, style);
     if (hide == true) {
       styleMix.display = 'none'
@@ -60,6 +61,7 @@ class Select extends Component {
     return (
         <select ref="input"
                 {...other}
+                disabled={readOnly}
                 style={styleMix}
                 onChange={this._onChange.bind(this)}>
           {this.props.children}

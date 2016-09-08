@@ -44,6 +44,7 @@ class Test extends Component{
   render() {
     return (
       <DatePicker datePickerOptions={this.datePickerOptions}
+                  readOnly={true}
                    id = {1234}
                    name = {'myDate'}
                    hide={this.state.hide}

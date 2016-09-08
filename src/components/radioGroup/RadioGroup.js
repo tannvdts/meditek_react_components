@@ -16,6 +16,7 @@ class RadioGroupCustom extends Component {
   }
 
   _onChange(value) {
+    if(this.props.readOnly) return;
     console.log("RadioGroup Component: _onChange:", value);
     if(typeof this.props.onChangeValue !== 'undefined') {
       this.props.onChangeValue(value, this.props.name);
@@ -27,7 +28,7 @@ class RadioGroupCustom extends Component {
   }
 
   render(){
-    var { style, value, onChangeValue, hide, ...other } = this.props;
+    var { style, value, onChangeValue, hide,  ...other } = this.props;
     var styleMix = _.assignIn({}, style);
     if (hide == true) {
       styleMix.display = 'none'

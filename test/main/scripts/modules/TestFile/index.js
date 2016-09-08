@@ -28,7 +28,7 @@ class Test extends Component{
   render() {
     return (
       <div>
-        <FileComp.InputFile showInfo={true} multiple={true} name={'TestFile'} files={this.state.files} onChangeValue={this._onTestFileInputChange.bind(this)}/>
+        <FileComp.InputFile  showInfo={true}  name={'TestFile'} files={this.state.files} onChangeValue={this._onTestFileInputChange.bind(this)}/>
         {this.state.files.map((file, index) => {
           return <FileComp.FileImagePreview file={file} style = {{width: "100px"}} key={index}></FileComp.FileImagePreview>
         })}
