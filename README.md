@@ -5,7 +5,7 @@
 **1. Mixins**
 -------------
 
-	***Định nghĩa các thuộc tính chung của component***
+	***Define general properties of component***
 
 	inputPropTypes: {
 	    id: PropTypes.oneOfType([
@@ -26,7 +26,7 @@
 	    ]),
 	  },
 
-**Ví dụ cách sử dụng:**
+**Example:**
 
 
     Select.propTypes = _.assignIn({}, mixins.inputPropTypes, {
@@ -44,9 +44,9 @@
 	  ]),
 	});
 
-**Select** component bao gồm các thuộc tính của mixins.inputPropTypes và có thêm các thuộc tính khác như multiple, options, defaultValues...
+**Select** component include properties of mixins.inputPropTypes and other properties as multiple, options, defaultValues...
 
-***Định nghĩa thêm các kiểu dữ liệu pha trộn khác:***
+***Define other mixins properties:***
 
 
     check: PropTypes.oneOfType([
@@ -61,7 +61,7 @@
 
 
 
-**2. Danh sách các component và thư viện liên quan:**
+**2. List of relation components and libraries:**
 -----------------------------------------------------
 
 
@@ -106,16 +106,15 @@ Function:
 
 Using:
 
-> *Nếu trueValue không xác định thì trueValue mặc định là true,
+> *trueValue: default true,
 >
-> *Nếu falseValue không xác định thì falseValue mặc định là false
+> *falseValue: default false,
 >
-> *Khi checkbox được checked thì gía trị trả về sẽ là trueValue
+> *If checkbox is checked, return trueValue,
 >
-> *Khi checkbox unchecked thì gía trị trả về sẽ là falseValue
+> *If checkbox is uncheck, return falseValue,
 >
-> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
-> dụng cho nhiều form input tag
+> Using props **name** in case  reuse onChangeValue function for more tags
 
 
 
@@ -160,9 +159,9 @@ Using:
 **2.2 CheckboxGroup**
 ---------------------
 
-**Sử dụng trong trường hợp:**
+**Using case:**
 
-> Gỉa sử có 4 checkbox:
+> Assuming you have 4 checkbox:
 >
 > Checkbox value="apple"
 >
@@ -172,7 +171,7 @@ Using:
 >
 > Checkbox value="banana"
 >
-> Khi check apple, orange, banana thì sẽ trả về mảng [apple,  orange,
+> If you check apple, orange, banana then component will return array [apple,  orange,
 > banana]
 
 Props:
@@ -200,10 +199,9 @@ Function:
 
 Using:
 
-> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
-> dụng cho nhiều form input tag
+> Using prop **name** in case resuse onChangeValue function  for more tag
 >
-> Đối với CheckboxGroup Bắt buộc cung cấp thuộc tính name
+>  CheckboxGroup must provide **name** prop
 
     class Test extends Component{
       constructor(props) {
@@ -254,13 +252,13 @@ Using:
 **2.3 DatePicker**
 ------------------
 
-**Dựa trên thư viện: https://bootstrap-datepicker.readthedocs.io/en/latest/**
+**Base on library: https://bootstrap-datepicker.readthedocs.io/en/latest/**
 
 Props:
 
 > -**extends mixins.inputPropTypes**
 >
-> -**datePickerOptions**: options của bootstrap-datepicker
+> -**datePickerOptions**: options of bootstrap-datepicker
 >
 > -**value**: Proptypes.object (Date object)
 
@@ -290,8 +288,7 @@ Function:
 
 Using:
 
-> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
-> dụng cho nhiều form input tag
+> Using prop **name** in case reuse onChangeValue function for more tags
 
     class Test extends Component{
       constructor(props) {
@@ -321,7 +318,7 @@ Using:
       componentDidMount() {
         var self = this;
         var selectedDate = moment().format("DD/MM/YYYY");
-        // Mo phong bat dong bo
+        // simulation async
         //----------------------------------
         setTimeout(function(selectedDate){
           self.setState({
@@ -353,29 +350,29 @@ Using:
 **2.4 FileComp**
 ------------
 
-> Xử dụng để chọn upload file và preview file upload
+> Using for select file to upload and review file upload
 >
-> InputFile component: chọn file để upload
+> InputFile component: select file to upload
 >
 > InputFileImagePreview: preview file upload
 
 **2.4.1 FileComp.InputFile**
 
-Chọn file để upload
+Select file to upload
 
-Trả về mảng files
+Return array of files
 
 Props:
 
 > -**extends mixins.inputPropTypes**
 >
-> -**multiple**: PropTypes.bool. Cho phép chọn cùng lúc nhiều file hay không (true/false)
+> -**multiple**: PropTypes.bool. Select multiple files or not
 >
-> -**label**: PropTypes.string. Label của nút chọn file
+> -**label**: PropTypes.string. Label of button select file
 >
-> -**files**: PropTypes.array. Danh sách các file đã được chọn
+> -**files**: PropTypes.array. List selected file
 >
-> -**showInfo**: PropTypes.bool. Có hiện lên table thể hiện các file nào đã được chọn hay không
+> -**showInfo**: PropTypes.bool. show table selected files or  not
 
 
 DefaultProps:
@@ -406,7 +403,7 @@ Function:
 
 **2.4.2 FileComp.FileImagePreview**
 
-Sử dụng để preview file upload
+Using for review file upload
 
 Props:
 
@@ -431,8 +428,7 @@ DefaultProps:
 
 Using:
 
-> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
-> dụng cho nhiều form input tag
+> Using prop **name** in case reuse onChangeValue for more tags
 
     class Test extends Component{
       constructor(props) {
@@ -497,8 +493,7 @@ Function:
 
 Using:
 
-> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
-> dụng cho nhiều form input tag
+> Using prop **name** in case reuse onChangeValue for more tags
 
     class Test extends Component{
       constructor(props) {
@@ -536,7 +531,7 @@ Using:
 **2.6 ModalComp**
 -------------
 
-> Dựa trên boostrap 3 Modal
+> Base on boostrap 3 Modal
 >
 > -Modal Component
 >
@@ -589,19 +584,19 @@ Functions:
 
 > - **Action (name, options)** name:
 >
->+"show": tương ứng: domElement.modal("show")
+>+"show": correctponding domElement.modal("show")
 >
-> +"hide": tương ứng: domElement.modal("hide")
+> +"hide": correctponding domElement.modal("hide")
 >
-> +"toggle": tương ứng: domElement.modal("toggle")
+> +"toggle": correctponding domElement.modal("toggle")
 >
-> +"handleUpdate": tương ứng: domElement.modal("handleUpdate")
+> +"handleUpdate": correctponding domElement.modal("handleUpdate")
 >
-> +"options": tương ứng: domElement.modal(options)
+> +"options": correctponding domElement.modal(options)
 
 **2.6.2 ModalComp.ModalHeader**
 
-> Chứa phần header của modal
+> Header of modal
 
 Props:
 
@@ -621,7 +616,7 @@ DefaultProps:
 
 **2.6.3 ModalComp.ModalBody**
 
-Chứ nội dung chính của modal
+Main body of modal
 
 Props:
 
@@ -638,7 +633,7 @@ DefaultProps:
 
 **2.6.4 ModalComp.ModalFooter:**
 
-Chứ phần footer của modal
+Footer of modal
 
 Props:
 
@@ -648,11 +643,11 @@ Props:
 >
 > -**hide**: PropTypes.bool,
 >
-> -**haveCloseBtn**: PropTypes.bool, //Có button close modal hay không, mặc định là true
+> -**haveCloseBtn**: PropTypes.bool, //must close button or not
 >
-> -**closeBtnClassName**: PropTypes.string, //Style của button close
+> -**closeBtnClassName**: PropTypes.string, //Style of close button
 >
-> -**closeBtnLabel**: PropTypes.string //Lable của button close
+> -**closeBtnLabel**: PropTypes.string //Lable of close button
 
 DefaultProps:
 
@@ -712,7 +707,7 @@ Using:
 **2.7 Pagination**
 ------------------
 
-Dựa vào bootstrap 3 Pagination,
+Base on bootstrap 3 Pagination,
 
 Props:
 
@@ -796,7 +791,7 @@ Using:
 **2.8 RadioGroup**
 ------------------
 
-> Dựa trên thư viện  https://www.npmjs.com/package/react-radio-group
+> Base on library  https://www.npmjs.com/package/react-radio-group
 > https://github.com/chenglou/react-radio-group
 > - RadioGroup Component
 > - Radio Component
@@ -841,9 +836,9 @@ DefaultProps:
 
 Using:
 
-> Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
-> dụng cho nhiều form input tag Đối với radioGroup thì bắt buộc sử dụng
-> name
+> Using prop **name** in case reuse onChangeValue function for more tags
+>
+> Must provide **name** for radioGroup
 
 
      class Test extends Component{
@@ -895,13 +890,13 @@ Using:
 **2.9 Select**
 --------------
 
-> **Nếu multiple = true thì select sẽ trả về array**
+> **If multiple = true then select return array**
 
-> **Nếu multiple = false thì select chỉ trả về 1 gía trị duy nhất(string/number)**
+> **If multiple = false then select tag only return single value (string/number)**
 
 Props:
 
-> -**multiple**: PropTypes.bool, //Có cho select nhiều item hay không
+> -**multiple**: PropTypes.bool, //select multiple item or not
 
 > -**options**: PropTypes.array,
 
@@ -930,7 +925,7 @@ Function:
 
 Using:
 
-Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
+Using props **name** in case reuse onChangeValue function for more tags
 
     class Test extends Component{
       constructor(props) {
@@ -987,7 +982,7 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 
 Props:
 
-> -**Kế thừa mixins.inputPropsTypes**
+> -**Extend mixins.inputPropsTypes**
 
 > -**rows**: PropTypes.number
 
@@ -1010,7 +1005,7 @@ Function:
 
 Using:
 
-Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử dụng cho nhiều form input tag
+Using prop **name** in case reuse onChangeValue function for more tags
 
     class Test extends Component{
       constructor(props) {
@@ -1049,19 +1044,19 @@ Sử dụng thêm props **name** trong trường hợp 1 hàm onChangeValue sử
 **2.11 TimePicker**
 -------------------
 
-> Dựa vào thư viện:
+> Base on library:
 >
 > https://jdewit.github.io/bootstrap-timepicker/
 >
 > https://www.npmjs.com/package/bootstrap-timepicker
 >
-> Gía trị trả về dạng: 15:30:25 hoặc 3:30:25 PM
+> Return value with format: 15:30:25 or 3:30:25 PM
 
 PropTypes:
 
 > -**Kế thừa mixins.inputPropTypes**
 >
-> -**timepickerOptions**: PropTypes.object // Các props của bootstrap-timepicker http://jdewit.github.io/bootstrap-timepicker/
+> -**timepickerOptions**: PropTypes.object // Props of bootstrap-timepicker http://jdewit.github.io/bootstrap-timepicker/
 >
 > -**onShow**: PropTypes.func,
 >
@@ -1087,7 +1082,7 @@ Default Props:
 
 > 	   	  defaultTime: 'current',
 
-> 	   	  showMeridian: false, //hien AM/PM hay khong }
+> 	   	  showMeridian: false, //show AM/PM or not }
 
 
 Function:
@@ -1107,7 +1102,7 @@ Using:
           testTimePicker: null
         }
       }
-    
+
       componentWillMount() {
         this.timepickerOptions=
         {
@@ -1115,7 +1110,7 @@ Using:
           minuteStep: 15,
           secondStep: 15,
           defaultTime: 'current',
-          showMeridian: true, //hien AM/PM hay khong
+          showMeridian: true, //show AM/PM or not
           //--------------------
           showSeconds:true,
           //modalBackdrop:true
