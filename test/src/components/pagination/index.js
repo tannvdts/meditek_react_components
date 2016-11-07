@@ -14,7 +14,7 @@ class PaginationCustom extends Component {
   _onChange(pageNumber) {
     console.log(`Pagination Component: active page is ${pageNumber}`);
     if(this.props.onChangeValue) {
-      this.props.onChangeValue(pageNumber);
+      this.props.onChangeValue(pageNumber, this.props.name);
     }
   }
 
