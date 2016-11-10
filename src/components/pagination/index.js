@@ -11,11 +11,15 @@ class PaginationCustom extends Component {
   componentDidMount(){
   }
 
-  componentDidUpdate(){
-    if(this.props.onComponentDidUpdate)
-    {
-      this.props.onComponentDidUpdate();
+  componentDidUpdate(prevProps){
+    if(!prevProps.totalItemsCount) {
+      console.log("Pagination.componentDidUpdate", prevProps.totalItemsCount);
+      if(this.props.onComponentDidUpdate)
+      {
+        this.props.onComponentDidUpdate();
+      }
     }
+    
   }
 
   _onChange(pageNumber) {
