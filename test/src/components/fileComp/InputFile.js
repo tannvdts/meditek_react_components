@@ -77,7 +77,9 @@ class InputFile extends Component {
                   <td style={{paddingRight:"10px"}}>{item.name}</td>
                   <td style={{paddingRight:"10px"}}>
                     {(item.size/1024).toFixed(1) + 'KB'}
-                    <span style={{color: item.size>maxSize?'red':''}}>Size limit {(maxSize/1024/1024).toFixed(1)+'MB'}</span>
+                    <span style={{color: item.size>maxSize?'red':'', display:item.size<=maxSize?'none':''}}>
+                      Size limit {(maxSize/1024/1024).toFixed(4)+'MB'}
+                    </span>
                   </td>
                   <td><a href="javascript:void(0)" onClick={this._onRemoveChoseFile.bind(this, item.name)}>remove</a></td>
                 </tr>
