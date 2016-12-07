@@ -11,17 +11,6 @@ class PaginationCustom extends Component {
   componentDidMount(){
   }
 
-  componentDidUpdate(prevProps){
-    if(!prevProps.totalItemsCount) {
-      console.log("Pagination.componentDidUpdate", prevProps.totalItemsCount);
-      if(this.props.onComponentDidUpdate)
-      {
-        this.props.onComponentDidUpdate();
-      }
-    }
-    
-  }
-
   _onChange(pageNumber) {
     console.log(`Pagination Component: active page is ${pageNumber}`);
     if(this.props.onChangeValue) {
@@ -68,8 +57,7 @@ PaginationCustom.propTypes = _.assignIn({}, {
   name: PropTypes.string,
   disabled: PropTypes.bool,
   hide: PropTypes.bool,
-  ariaLabel: PropTypes.string,
-  onComponentDidUpdate: PropTypes.func
+  ariaLabel: PropTypes.string
 })
 PaginationCustom.defaultProps = {
   hide: false,
