@@ -373,6 +373,7 @@ Props:
 > -**files**: PropTypes.array. List selected file
 >
 > -**showInfo**: PropTypes.bool. show table selected files or  not
+> -**maxSize**: PropTypes.number. max size of file
 
 
 DefaultProps:
@@ -392,6 +393,8 @@ DefaultProps:
 > -**files**: [],
 >
 > -**showInfo**: true
+>
+> -**maxSize**: 10MB
 
 
 Function:
