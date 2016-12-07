@@ -58,7 +58,16 @@ class InputFile extends Component {
         break;
       }
     }
+  }
 
+  getFilesTooLarge() {
+    var filesTooLarge = [];
+    for(var i = 0; i<this.filesHandling.length; i++) {
+      if(this.filesHandling[i].size>this.props.maxSize) {
+        filesTooLarge.push(this.filesHandling[i]);
+      }
+    }
+    return filesTooLarge;
   }
 
   render(){
