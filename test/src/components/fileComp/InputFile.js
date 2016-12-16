@@ -71,7 +71,7 @@ class InputFile extends Component {
   }
 
   render(){
-    const  {style, onChangeValue, label, multiple, hide, showInfo, files, readOnly, maxSize, ...other } = this.props;
+    const  {style, onChangeValue, label, multiple, accept, hide, showInfo, files, readOnly, maxSize, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
     if (hide == true) {
       styleMix.display = 'none'
@@ -98,6 +98,7 @@ class InputFile extends Component {
                      ref="inputFile"
                       style={{display: "none"}}
                      multiple={multiple}
+                     accept={accept}
                      onChange={this._onChange.bind(this)}
               />
               <input type="button"
@@ -122,6 +123,7 @@ InputFile.propTypes = _.assignIn({}, mixins.inputPropTypes, {
   files: PropTypes.array,
   showInfo: PropTypes.bool,
   maxSize: PropTypes.number,
+  accept: PropTypes.string,
 })
 InputFile.defaultProps = {
   hide: false,
@@ -133,5 +135,6 @@ InputFile.defaultProps = {
   files: [],
   showInfo: true,
   maxSize: 10 * 1024 * 1024, //10 MB
+  accept: '',
 }
 export default InputFile

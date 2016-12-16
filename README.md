@@ -373,8 +373,10 @@ Props:
 > -**files**: PropTypes.array. List selected file
 >
 > -**showInfo**: PropTypes.bool. show table selected files or  not
+>
 > -**maxSize**: PropTypes.number. max size of file
-
+>
+> -**accept**: Accept file types, references: http://stackoverflow.com/questions/11832930/html-input-file-accept-attribute-file-type-csv
 
 DefaultProps:
 
@@ -395,7 +397,8 @@ DefaultProps:
 > -**showInfo**: true
 >
 > -**maxSize**: 10MB
-
+>
+> -**accept**: ''
 
 Function:
 
