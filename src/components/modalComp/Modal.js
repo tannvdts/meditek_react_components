@@ -59,7 +59,7 @@ class Modal extends Component {
   }
 
   render(){
-    const  {style, className, tabIndex, size, dialogContainerStyle, onShown, ...other } = this.props;
+    const  {style, className, tabIndex, size, dialogContainerStyle, onShow, onShown, onHide, onHidden, onLoaded, ...other } = this.props;
     let styleMix = _.assignIn({}, style);
     if (this.props.hide == true) {
       styleMix.display = 'none'
