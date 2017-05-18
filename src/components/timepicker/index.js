@@ -14,7 +14,7 @@ class TimePicker extends Component {
   }
   componentDidMount(){
     var self = this;
-    if(this.props.readOnly) {
+    if(!this.props.readOnly) {
       $(this.refs['input']).timepicker(this.props.timepickerOptions)
         .on('show.timepicker', function(e) {
           console.log("on show.timepicker", e);
